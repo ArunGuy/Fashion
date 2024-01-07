@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="detailRowModel" type="com.fashion.app.modules.prop.data.model.DetailRowModel"/>
+    </data>
+    <LinearLayout android:id="@+id/linearWaistline"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal" style="@style/groupStylewhite_A701cornerRadius">
+        <TextView android:ellipsize="end" android:id="@+id/txtWaistline"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_11pxv"
+            android:layout_marginStart="@dimen/_15pxh"
+            android:layout_marginTop="@dimen/_9pxv"
+            android:layout_weight="0.41" android:layout_width="0dp"
+            android:singleLine="true"
+            android:text="@{detailRowModel.txtWaistline}"
+            style="@style/txtIntersemibold16_1" tools:text="@string/lbl_waistline"/>
+        <LinearLayout android:id="@+id/linearRowgroupfortyeight"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_8pxv"
+            android:layout_marginEnd="@dimen/_15pxh"
+            android:layout_marginStart="@dimen/_139pxh"
+            android:layout_marginTop="@dimen/_8pxv"
+            android:layout_weight="0.59" android:layout_width="0dp" android:orientation="horizontal">
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtGroupFortyEight"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.63" android:layout_width="0dp"
+                android:paddingBottom="@dimen/_4pxv"
+                android:paddingStart="@dimen/_15pxh"
+                android:paddingTop="@dimen/_1pxv"
+                android:singleLine="true"
+                android:text="@{detailRowModel.txtGroupFortyEight}"
+                style="@style/txtOutline_1" tools:text="@string/lbl_n_a"/>
+            <TextView android:ellipsize="end" android:id="@+id/txtInch"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_3pxv"
+                android:layout_marginStart="@dimen/_14pxh"
+                android:layout_marginTop="@dimen/_1pxv"
+                android:layout_weight="0.37" android:layout_width="0dp"
+                android:singleLine="true"
+                android:text="@{detailRowModel.txtInch}"
+                style="@style/txtIntersemibold16_1" tools:text="@string/lbl_inch"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>
