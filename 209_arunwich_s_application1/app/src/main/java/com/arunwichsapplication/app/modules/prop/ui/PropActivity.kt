@@ -17,7 +17,7 @@ class PropActivity : BaseActivity<ActivityPropBinding>(R.layout.activity_prop) {
   override fun onInitialized(): Unit {
     viewModel.navArguments = intent.extras?.getBundle("bundle")
     val detailAdapter = DetailAdapter(viewModel.detailList.value?:mutableListOf())
-    binding.recyclerDetail.adapter = detailAdapter
+
     detailAdapter.setOnItemClickListener(
     object : DetailAdapter.OnItemClickListener {
       override fun onItemClick(view:View, position:Int, item : DetailRowModel) {
