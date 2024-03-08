@@ -23,7 +23,7 @@
   <string name="lbl_phone">Phone</string>
   <string name="lbl3">-</string>
   <string name="lbl_home">Home</string>
-  <string name="lbl_account_setting">account setting</string>
+  <string name="lbl_account_setting">Account Setting</string>
   <string name="msg_already_have_an">Already have an account ?</string>
   <string name="lbl_description">Description</string>
   <string name="lbl_my_order">My Order</string>
@@ -61,7 +61,7 @@ our </string>
   <string name="msg_view_purchase_h">View Purchase History</string>
   <string name="lbl_weight">Weight</string>
   <string name="lbl_google">Google</string>
-  <string name="msg_account_secur">Account &amp; Security</string>
+  <string name="msg_account">Account &amp; Security</string>
   <string name="lbl_login">Login</string>
   <string name="lbl_to_pay">To Pay</string>
   <string name="lbl_my_review">My Review</string>
@@ -87,7 +87,18 @@ our Term and Conditions</string>
   <string name="lbl_account">Account</string>
   <string name="msg_spend_5_days_an">Spend 5 days and 4 nights in one of the best islands in the world! Bask in the sun while walking in the white sand beach and enjoy the night partying at the popular seaside bars.</string>
   <string name="lbl_xl">XL</string>
-    <string name="password">password</string>
-    <string name="email">Email</string>
+  <string name="password">password</string>
+  <string name="email">Email</string>
   <string name="password1">Password</string>
+  <string name="sign_up">Sign up</string>
+  <string name="google">Google</string>
+  <string name="facebook">Facebook</string>
+  <string name="email_address">Email</string>
+  <string name="phone">Phone</string>
+  <string name="pass">Password</string>
+  <string name="cm">cm</string>
+  <string name="kg">kg</string>
+  <string name="proportions">Proportions</string>
+  <string name="my_addresses">My Addresses</string>
+  <string name="account_setting">Account Setting</string>
 </resources>

@@ -27,7 +27,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/arrow_left" />
+            app:srcCompat="@drawable/arrow_left"
+            android:contentDescription="@null"/>
 
         <TextView
             android:id="@+id/textView4"
@@ -37,10 +38,10 @@
             android:layout_marginTop="55dp"
             android:layout_marginBottom="5dp"
             android:fontFamily="@font/intersemibold"
-            android:text="Proportions"
+            android:text="@string/proportions"
             android:textAlignment="center"
             android:textColor="#22284B"
-            android:textSize="20dp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView11"
             app:layout_constraintTop_toTopOf="parent" />
@@ -56,7 +57,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
 
-        app:srcCompat="@drawable/prop_pic" />
+        app:srcCompat="@drawable/prop_pic"
+        android:contentDescription="@null"/>
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -82,24 +84,25 @@
                 android:background="@drawable/editprop_bg"
                 android:ems="10"
                 android:fontFamily="@font/intersemibold"
-                android:hint="Waistline"
+                android:hint="@string/lbl_waistline"
                 android:inputType="number"
                 android:paddingStart="10dp"
                 android:paddingTop="10dp"
                 android:paddingEnd="10dp"
                 android:textColorHint="#C1C1C1"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:minHeight="48dp" />
 
             <TextView
                 android:id="@+id/textView9"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="15dp"
                 android:layout_weight="1"
                 android:background="@drawable/rectprop_bg"
                 android:fontFamily="@font/intersemibold"
                 android:paddingTop="10dp"
-                android:text="inch"
+                android:text="@string/lbl_inch"
                 android:textAlignment="center"
                 android:textColor="#6588E6"
                 android:textSize="16sp" />
@@ -118,24 +121,25 @@
                 android:background="@drawable/editprop_bg"
                 android:ems="10"
                 android:fontFamily="@font/intersemibold"
-                android:hint="Chest"
+                android:hint="@string/lbl_chest"
                 android:inputType="number"
                 android:paddingStart="10dp"
                 android:paddingTop="10dp"
                 android:paddingEnd="10dp"
                 android:textColorHint="#C1C1C1"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:minHeight="48dp" />
 
             <TextView
                 android:id="@+id/textView10"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="15dp"
                 android:layout_weight="1"
                 android:background="@drawable/rectprop_bg"
                 android:fontFamily="@font/intersemibold"
                 android:paddingTop="10dp"
-                android:text="inch"
+                android:text="@string/lbl_inch"
                 android:textAlignment="center"
                 android:textColor="#6588E6"
                 android:textSize="16sp" />
@@ -154,24 +158,25 @@
                 android:background="@drawable/editprop_bg"
                 android:ems="10"
                 android:fontFamily="@font/intersemibold"
-                android:hint="Hip"
+                android:hint="@string/lbl_hip"
                 android:inputType="number"
                 android:paddingStart="10dp"
                 android:paddingTop="10dp"
                 android:paddingEnd="10dp"
                 android:textColorHint="#C1C1C1"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:minHeight="48dp" />
 
             <TextView
                 android:id="@+id/textView11"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="15dp"
                 android:layout_weight="1"
                 android:background="@drawable/rectprop_bg"
                 android:fontFamily="@font/intersemibold"
                 android:paddingTop="10dp"
-                android:text="inch"
+                android:text="@string/lbl_inch"
                 android:textAlignment="center"
                 android:textColor="#6588E6"
                 android:textSize="16sp" />
@@ -190,24 +195,25 @@
                 android:background="@drawable/editprop_bg"
                 android:ems="10"
                 android:fontFamily="@font/intersemibold"
-                android:hint="Height"
+                android:hint="@string/lbl_height"
                 android:inputType="number"
                 android:paddingStart="10dp"
                 android:paddingTop="10dp"
                 android:paddingEnd="10dp"
                 android:textColorHint="#C1C1C1"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:minHeight="48dp" />
 
             <TextView
                 android:id="@+id/textView12"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="15dp"
                 android:layout_weight="1"
                 android:background="@drawable/rectprop_bg"
                 android:fontFamily="@font/intersemibold"
                 android:paddingTop="10dp"
-                android:text="cm"
+                android:text="@string/cm"
                 android:textAlignment="center"
                 android:textColor="#6588E6"
                 android:textSize="16sp" />
@@ -226,24 +232,25 @@
                 android:background="@drawable/editprop_bg"
                 android:ems="10"
                 android:fontFamily="@font/intersemibold"
-                android:hint="Weight"
+                android:hint="@string/lbl_weight"
                 android:inputType="number"
                 android:paddingStart="10dp"
                 android:paddingTop="10dp"
                 android:paddingEnd="10dp"
                 android:textColorHint="#C1C1C1"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:minHeight="48dp" />
 
             <TextView
                 android:id="@+id/textView13"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="15dp"
                 android:layout_weight="1"
                 android:background="@drawable/rectprop_bg"
                 android:fontFamily="@font/intersemibold"
                 android:paddingTop="10dp"
-                android:text="kg"
+                android:text="@string/kg"
                 android:textAlignment="center"
                 android:textColor="#6588E6"
                 android:textSize="16sp" />
@@ -260,7 +267,7 @@
         android:layout_marginEnd="35dp"
         android:background="@drawable/blue_button"
         android:fontFamily="@font/intersemibold"
-        android:text="Success"
+        android:text="@string/lbl_success"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#FFFFFF"
         android:textSize="18sp"

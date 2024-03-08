@@ -14,7 +14,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/head_bg" />
+        app:srcCompat="@drawable/head_bg"
+        android:contentDescription="@null"/>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -23,7 +24,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="175dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="375dp"
+        android:layout_marginBottom="355dp"
         android:background="@drawable/white_bg"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,10 +38,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:fontFamily="@font/interextrabold"
-            android:text="Log in"
+            android:text="@string/lbl_login"
             android:textAlignment="center"
             android:textColor="#22284B"
-            android:textSize="32dp" />
+            android:textSize="32sp" />
 
         <EditText
             android:id="@+id/editTextText2"
@@ -52,8 +53,9 @@
             android:background="@drawable/edit_bg"
             android:ems="10"
             android:fontFamily="@font/intersemibold"
-            android:hint="Email"
+            android:hint="@string/lbl_email"
             android:inputType="textPersonName"
+            android:minHeight="48dp"
             android:textColorHint="#C1C1C1"
             android:textSize="18sp" />
 
@@ -67,8 +69,9 @@
             android:background="@drawable/edit_bg"
             android:ems="10"
             android:fontFamily="@font/intersemibold"
-            android:hint="Password"
+            android:hint="@string/lbl_password"
             android:inputType="textPersonName"
+            android:minHeight="48dp"
             android:textColorHint="#C1C1C1"
             android:textSize="18sp" />
 
@@ -81,10 +84,10 @@
             android:layout_marginEnd="35dp"
             android:background="@drawable/blue_button"
             android:fontFamily="@font/intersemibold"
-            android:text="Log in"
+            android:text="@string/lbl_log_in2"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="#FFFFFF"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textView2"
@@ -94,10 +97,10 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="50dp"
             android:fontFamily="@font/intersemibold"
-            android:text="Forgot your password ?"
+            android:text="@string/msg_forgot_your_pas"
             android:textAlignment="center"
             android:textColor="#6588E6"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -113,10 +116,10 @@
         android:fontFamily="@font/intersemibold"
         android:paddingStart="15dp"
         android:paddingEnd="45dp"
-        android:text="Google"
+        android:text="@string/lbl_google"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#8F8E93"
-        android:textSize="16dp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
@@ -132,10 +135,10 @@
         android:fontFamily="@font/intersemibold"
         android:paddingStart="15dp"
         android:paddingEnd="45dp"
-        android:text="Facebook"
+        android:text="@string/lbl_facebook"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#8F8E93"
-        android:textSize="16dp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
@@ -152,18 +155,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/interregular"
-            android:text="Don’t have an account?"
+            android:text="@string/msg_don_t_have_an_a"
             android:textColor="#8F8E93"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/intersemibold"
-            android:text="Sign Up"
+            android:text="@string/sign_up"
             android:textColor="#6588E6"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:layout_marginStart="13dp" />
     </LinearLayout>
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFAEE">
@@ -28,7 +27,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/arrow_left" />
+            app:srcCompat="@drawable/arrow_left"
+            android:contentDescription="@null"/>
 
         <TextView
             android:id="@+id/textView4"
@@ -38,10 +38,10 @@
             android:layout_marginTop="55dp"
             android:layout_marginBottom="5dp"
             android:fontFamily="@font/intersemibold"
-            android:text="Account Setting"
+            android:text="@string/account_setting"
             android:textAlignment="center"
             android:textColor="#22284B"
-            android:textSize="20dp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView11"
             app:layout_constraintTop_toTopOf="parent" />
@@ -52,15 +52,15 @@
         android:id="@+id/switch_account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
-        android:text="Switch Account"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="35dp"
         android:background="@drawable/whiteblue_button"
         android:fontFamily="@font/intersemibold"
+        android:text="@string/lbl_switch_account"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#6588E6"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout1" />
@@ -69,15 +69,15 @@
         android:id="@+id/log_out"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="35dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="35dp"
         android:background="@drawable/blue_button"
         android:fontFamily="@font/intersemibold"
-        android:text="Log Out"
+        android:text="@string/lbl_log_out"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#FFFFFF"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/switch_account" />
@@ -100,11 +100,12 @@
             android:background="@drawable/white_settingtop"
             android:fontFamily="@font/intermedium"
             android:paddingStart="25dp"
+            android:paddingEnd="25dp"
             android:paddingTop="11dp"
             android:paddingBottom="11dp"
-            android:text="Account and Security"
+            android:text="@string/msg_account"
             android:textColor="#6D6E6E"
-            android:textSize="15dp" />
+            android:textSize="15sp" />
 
         <ImageView
             android:id="@+id/right1"
@@ -117,7 +118,8 @@
             android:paddingEnd="30dp"
             android:paddingBottom="11dp"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/arrow_right" />
+            app:srcCompat="@drawable/arrow_right"
+            android:contentDescription="@null" />
 
     </LinearLayout>
 
@@ -138,11 +140,12 @@
             android:background="@drawable/white_settingtop"
             android:fontFamily="@font/intermedium"
             android:paddingStart="25dp"
+            android:paddingEnd="25dp"
             android:paddingTop="11dp"
             android:paddingBottom="11dp"
-            android:text="My Addresses"
+            android:text="@string/my_addresses"
             android:textColor="#6D6E6E"
-            android:textSize="15dp" />
+            android:textSize="15sp" />
 
         <ImageView
             android:id="@+id/right2"
@@ -155,7 +158,8 @@
             android:paddingEnd="30dp"
             android:paddingBottom="11dp"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/arrow_right" />
+            app:srcCompat="@drawable/arrow_right"
+            android:contentDescription="@null"/>
 
     </LinearLayout>
 
@@ -176,11 +180,12 @@
             android:background="@drawable/white_settingbottom"
             android:fontFamily="@font/intermedium"
             android:paddingStart="25dp"
+            android:paddingEnd="25dp"
             android:paddingTop="11dp"
             android:paddingBottom="11dp"
-            android:text="Bank Accounts / Cards"
+            android:text="@string/msg_bank_accounts"
             android:textColor="#6D6E6E"
-            android:textSize="15dp" />
+            android:textSize="15sp" />
 
         <ImageView
             android:id="@+id/right3"
@@ -193,7 +198,8 @@
             android:paddingEnd="30dp"
             android:paddingBottom="11dp"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/arrow_right" />
+            app:srcCompat="@drawable/arrow_right"
+            android:contentDescription="@null"/>
 
     </LinearLayout>
 
