@@ -33,26 +33,30 @@
                         android:scaleType="fitXY"
                         android:src="@drawable/img_arrowleft_indigo_300"
                         tools:ignore="ContentDescription" tools:src="@drawable/img_arrowleft_indigo_300"/>
+
                     <androidx.appcompat.widget.SearchView
-                        android:background="@drawable/rectangle_border_indigo_300_radius_20"
                         android:id="@+id/searchViewFrame2432"
+                        android:layout_width="297dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_24pxh"
-                        android:layout_weight="0.9"
-                        android:layout_width="0dp"
-                        android:theme="@style/searchViewFrame2432"
+                        android:background="@drawable/rectangle_border_indigo_300_radius_20"
+                        android:queryHint="@string/lbl_search"
                         app:iconifiedByDefault="false"
                         app:queryBackground="@android:color/transparent"
-                        app:queryHint="@string/lbl_search" app:searchIcon="@drawable/img_search_gray_400"/>
-                    <ImageView android:id="@+id/imageSearchOne"
-                        android:layout_height="@dimen/_20pxh"
-                        android:layout_marginBottom="@dimen/_9pxv"
+                        app:searchIcon="@drawable/img_search_gray_400"
+                        app:theme="@style/searchViewFrame2432" />
+
+                    <ImageView
+                        android:id="@+id/imageSearchOne"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
                         android:layout_marginStart="@dimen/_15pxh"
                         android:layout_marginTop="@dimen/_9pxv"
-                        android:layout_width="@dimen/_20pxh"
+                        android:layout_marginBottom="@dimen/_9pxv"
                         android:scaleType="fitXY"
                         android:src="@drawable/img_search_indigo_300_20x20"
-                        tools:ignore="ContentDescription" tools:src="@drawable/img_search_indigo_300_20x20"/>
+                        tools:ignore="ContentDescription"
+                        tools:src="@drawable/img_search_indigo_300_20x20" />
                 </LinearLayout>
             </androidx.appcompat.widget.Toolbar>
             <LinearLayout android:gravity="center_vertical"
@@ -168,13 +172,16 @@
                         android:text="@{resultVM.resultModel.txtLanguage}"
                         style="@style/txtIntersemibold16_3" tools:text="@string/lbl_free_shipping"/>
                 </LinearLayout>
+
                 <Spinner
-                    android:background="@drawable/layer_list_bg_gray_201_radius_10"
                     android:id="@+id/spinnerFrame2441"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_12pxh"
                     android:layout_weight="0.38"
-                    android:layout_width="0dp" tools:listitem="@layout/spinner_item"/>
+                    android:background="@drawable/layer_list_bg_gray_201_radius_10"
+                    tools:ignore="TouchTargetSizeCheck"
+                    tools:listitem="@layout/spinner_item" />
             </LinearLayout>
         </LinearLayout>
         <LinearLayout android:gravity="center_horizontal"
@@ -187,16 +194,19 @@
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:orientation="vertical" style="@style/groupStyleyellow_50">
+
                 <androidx.recyclerview.widget.RecyclerView
-                    android:gravity="center_horizontal"
                     android:id="@+id/recyclerResult"
+                    itemSpace="@{@dimen/_20pxh}"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_20pxh"
                     android:layout_marginVertical="@dimen/_20pxv"
-                    android:layout_width="match_parent"
+                    android:gravity="center_horizontal"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                    app:spanCount="2" itemSpace="@{@dimen/_20pxh}"
-                    tools:itemCount="6" tools:listitem="@layout/row_result"/>
+                    app:spanCount="2"
+                    tools:itemCount="6"
+                    tools:listitem="@layout/row_result" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
