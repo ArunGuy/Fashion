@@ -155,7 +155,7 @@ annotation class ShortDress
     nameThai = "แจ็คเก็ตที่มีไหล่ที่ชัดเจน",
     nameEnglish = "Structured Jacket"
 )
-annotation class StructuredJacket
+annotation class StructuredJacket1
 
 // กางเกงยีนส์ที่มีกระเป๋าด้านหลัง ที่เหมาะสำหรับ Apple Body, Hourglass Body, Inverted Triangle Body
 @AppleBodyClothing(
@@ -170,7 +170,7 @@ annotation class StructuredJacket
     nameThai = "กางเกงยีนส์ที่มีกระเป๋าด้านหลัง",
     nameEnglish = "Low Rise Jeans"
 )
-annotation class LowRiseJeans
+annotation class LowRiseJeans1
 
 // กางเกงยีนส์ทรงต่ำ ที่เหมาะสำหรับ Apple Body, Hourglass Body, Inverted Triangle Body
 @AppleBodyClothing(
@@ -185,7 +185,7 @@ annotation class LowRiseJeans
     nameThai = "กางเกงยีนส์ทรงต่ำ",
     nameEnglish = "Bootcut Jeans"
 )
-annotation class BootcutJeans
+annotation class BootcutJeans1
 
 // กางเกงยีนส์สกินนี่ ที่เหมาะสำหรับ Hourglass Body, Inverted Triangle Body
 @HourglassBodyClothing(
@@ -638,4 +638,121 @@ annotation class Activewear
 @PearBodyClothing(nameThai = "กางเกงแฟชั่น", nameEnglish = "Fashion Pants")
 annotation class FashionPants
 
+// A-Line Dresses
+@AppleBodyClothing(nameThai = "ชุดเดรสทรง A-line", nameEnglish = "A Line Dresses")
+@HourglassBodyClothing(nameThai = "ชุดเดรสทรง A-line", nameEnglish = "A Line Dresses")
+@InvertedTriangleBodyClothing(nameThai = "ชุดเดรสทรง A-line", nameEnglish = "A Line Dresses")
+@Category("A-Line Dresses")
+annotation class ALineDresses
 
+// V-Neck Shirt
+@AppleBodyClothing(nameThai = "เสื้อคอวี", nameEnglish = "V Neck Shirt")
+@HourglassBodyClothing(nameThai = "เสื้อคอวี", nameEnglish = "V Neck Shirt")
+@InvertedTriangleBodyClothing(nameThai = "เสื้อคอวี", nameEnglish = "V Neck Shirt")
+@Category("V Neck Shirt")
+annotation class VNeckShirt
+
+// Minidress
+@AppleBodyClothing(nameThai = "เดรสสั้น", nameEnglish = "Minidress")
+@HourglassBodyClothing(nameThai = "เดรสสั้น", nameEnglish = "Minidress")
+@InvertedTriangleBodyClothing(nameThai = "เดรสสั้น", nameEnglish = "Minidress")
+@Category("Minidress")
+annotation class Minidress
+
+// Low-Rise Jeans
+@AppleBodyClothing(nameThai = "กางเกงยีนส์ทรงต่ำ", nameEnglish = "Low-Rise Jeans")
+@HourglassBodyClothing(nameThai = "กางเกงยีนส์ทรงต่ำ", nameEnglish = "Low-Rise Jeans")
+@InvertedTriangleBodyClothing(nameThai = "กางเกงยีนส์ทรงต่ำ", nameEnglish = "Low-Rise Jeans")
+@Category("Low-Rise Jeans")
+annotation class LowRiseJeans
+
+// Cropped Jacket
+@AppleBodyClothing(nameThai = "แจ็คเก็ตที่มีขนาดพอดีกับรูปร่าง", nameEnglish = "Cropped Jacket")
+@HourglassBodyClothing(nameThai = "แจ็คเก็ตที่มีขนาดพอดีกับรูปร่าง", nameEnglish = "Cropped Jacket")
+@InvertedTriangleBodyClothing(nameThai = "แจ็คเก็ตที่มีขนาดพอดีกับรูปร่าง", nameEnglish = "Cropped Jacket")
+@Category("Cropped Jacket")
+annotation class CroppedJacket
+
+// Dresses with Waist Detail
+@AppleBodyClothing(nameThai = "เดรสหรือเดรสที่มีรอยยับหรือรอยจับจีบที่ช่วงเอว", nameEnglish = "Dresses with Waist Detail")
+@HourglassBodyClothing(nameThai = "เดรสหรือเดรสที่มีรอยยับหรือรอยจับจีบที่ช่วงเอว", nameEnglish = "Dresses with Waist Detail")
+@InvertedTriangleBodyClothing(nameThai = "เดรสหรือเดรสที่มีรอยยับหรือรอยจับจีบที่ช่วงเอว", nameEnglish = "Dresses with Waist Detail")
+@Category("Dresses with Waist Detail")
+annotation class DressesWithWaistDetail
+
+// High-Waisted Skirts
+@AppleBodyClothing(nameThai = "กระโปรงเอวสูง", nameEnglish = "High-Waisted Skirts")
+@HourglassBodyClothing(nameThai = "กระโปรงเอวสูง", nameEnglish = "High-Waisted Skirts")
+@InvertedTriangleBodyClothing(nameThai = "กระโปรงเอวสูง", nameEnglish = "High-Waisted Skirts")
+@Category("High-Waisted Skirts")
+annotation class HighWaistedSkirts
+
+// Skinny Jeans
+@HourglassBodyClothing(nameThai = "กางเกงยีนส์สกินนี่", nameEnglish = "Skinny Jeans")
+@InvertedTriangleBodyClothing(nameThai = "กางเกงยีนส์สกินนี่", nameEnglish = "Skinny Jeans")
+@Category("Skinny Jeans")
+annotation class SkinnyJeans1
+
+// Pencil Skirts
+@HourglassBodyClothing(nameThai = "กระโปรงทรงดินสอ", nameEnglish = "Pencil Skirts")
+@InvertedTriangleBodyClothing(nameThai = "กระโปรงทรงดินสอ", nameEnglish = "Pencil Skirts")
+@Category("Pencil Skirts")
+annotation class PencilSkirts
+
+// Off Shoulder Dresses
+@AppleBodyClothing(nameThai = "เดรสเกาะอก", nameEnglish = "Off Shoulder Dresses")
+@HourglassBodyClothing(nameThai = "เดรสเกาะอก", nameEnglish = "Off Shoulder Dresses")
+@InvertedTriangleBodyClothing(nameThai = "เดรสเกาะอก", nameEnglish = "Off Shoulder Dresses")
+@Category("Off Shoulder Dresses")
+annotation class OffShoulderDresses
+
+// Wide Neck Tops
+@AppleBodyClothing(nameThai = "เสื้อที่มีคอกว้าง", nameEnglish = "Wide Neck Tops")
+@HourglassBodyClothing(nameThai = "เสื้อที่มีคอกว้าง", nameEnglish = "Wide Neck Tops")
+@InvertedTriangleBodyClothing(nameThai = "เสื้อที่มีคอกว้าง", nameEnglish = "Wide Neck Tops")
+@Category("Wide Neck Tops")
+annotation class WideNeckTops
+
+// Blazers
+@AppleBodyClothing(nameThai = "เบลเชอร์แบบยาว", nameEnglish = "Blazers")
+@HourglassBodyClothing(nameThai = "เบลเชอร์แบบยาว", nameEnglish = "Blazers")
+@InvertedTriangleBodyClothing(nameThai = "เบลเชอร์แบบยาว", nameEnglish = "Blazers")
+@Category("Blazers")
+annotation class Blazers
+
+// Straight Leg Jeans
+@HourglassBodyClothing(nameThai = "กางเกงทรงกระบอก", nameEnglish = "Straight Leg Jeans")
+@Category("Straight Leg Jeans")
+annotation class StraightLegJeans
+
+// Bootcut Jeans
+@HourglassBodyClothing(nameThai = "กางเกงทรงบาน", nameEnglish = "Bootcut Jeans")
+@Category("Bootcut Jeans")
+annotation class BootcutJeans
+
+// Palazzo Pants
+@HourglassBodyClothing(nameThai = "กางเกงทรงพาลาซโซ", nameEnglish = "Palazzo Pants")
+@Category("Palazzo Pants")
+annotation class PalazzoPants
+
+// A-Line Skirts
+@HourglassBodyClothing(nameThai = "กระโปรงทรงเอ", nameEnglish = "A-Line Skirts")
+@Category("A-Line Skirts")
+annotation class ALineSkirts
+
+// Heart Neckline Tops
+@AppleBodyClothing(nameThai = "เสื้อที่มีคอเป็นรูปหัวใจ", nameEnglish = "Heart Neckline Tops")
+@Category("Heart Neckline Tops")
+annotation class HeartNecklineTops
+
+// Tank Tops
+@AppleBodyClothing(nameThai = "เสื้อกล้าม", nameEnglish = "Tank Tops")
+@Category("Tank Tops")
+annotation class TankTops
+
+// Structured Jacket
+@AppleBodyClothing(nameThai = "แจ็คเก็ตที่มีขนาดพอดีกับรูปร่าง", nameEnglish = "Structured Jacket")
+@HourglassBodyClothing(nameThai = "แจ็คเก็ตที่มีขนาดพอดีกับรูปร่าง", nameEnglish = "Structured Jacket")
+@InvertedTriangleBodyClothing(nameThai = "แจ็คเก็ตที่มีขนาดพอดีกับรูปร่าง", nameEnglish = "Structured Jacket")
+@Category("Structured Jacket")
+annotation class StructuredJacket
