@@ -80,6 +80,8 @@
                     android:layout_marginTop="@dimen/_31pxv"
                     android:layout_marginEnd="@dimen/_35pxh"
                     android:ellipsize="end"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:gravity="center"
                     android:paddingStart="@dimen/_30pxh"
                     android:paddingTop="@dimen/_9pxv"

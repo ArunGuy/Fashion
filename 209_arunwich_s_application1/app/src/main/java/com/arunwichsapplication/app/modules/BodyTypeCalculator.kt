@@ -8,7 +8,7 @@ data class Person(
     val bust: Double,
     val hip: Double,
     val gender: String,
-    val bodyType: String // เพิ่ม property เพื่อเก็บข้อมูล body type
+    val bodyType: String
 )
 
 data class ClothingItem(

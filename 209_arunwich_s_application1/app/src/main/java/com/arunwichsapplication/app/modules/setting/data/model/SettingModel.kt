@@ -14,7 +14,7 @@ data class SettingModel(
   /**
    * TODO Replace with dynamic value
    */
-  var txtAccountSecur: String? = MyApp.getInstance().resources.getString(R.string.msg_account_secur)
+  var txtAccountSecur: String? = MyApp.getInstance().resources.getString(R.string.msg_bank_accounts)
   ,
   /**
    * TODO Replace with dynamic value

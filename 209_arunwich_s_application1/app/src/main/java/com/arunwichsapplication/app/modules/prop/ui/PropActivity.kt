@@ -1,5 +1,6 @@
 package com.arunwichsapplication.app.modules.prop.ui
 
+import android.content.Intent
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -10,7 +11,7 @@ import com.arunwichsapplication.app.modules.BodyTypeCalculator
 import com.arunwichsapplication.app.modules.Person
 import com.arunwichsapplication.app.modules.prop.data.model.DetailRowModel
 import com.arunwichsapplication.app.modules.prop.data.viewmodel.PropVM
-
+import com.arunwichsapplication.app.modules.account.ui.AccountActivity
 class PropActivity : BaseActivity<ActivityPropBinding>(R.layout.activity_prop) {
   private val viewModel: PropVM by viewModels()
 
@@ -93,8 +94,10 @@ class PropActivity : BaseActivity<ActivityPropBinding>(R.layout.activity_prop) {
 
     // คำนวณประเภทร่างกาย
     val bodyType = bodyTypeCalculator.calculateBodyType(person)
-    Toast.makeText(this, "ประเภทร่างกาย: $bodyType", Toast.LENGTH_SHORT).show()
-    // ทำสิ่งที่ต้องการกับประเภทร่างกาย เช่น ส่งไปยังที่อื่นตามที่ต้องการ
+    Toast.makeText(this, "ประเภทร่างกาย Body Type : $bodyType", Toast.LENGTH_SHORT).show()
+    val intent = Intent(this, AccountActivity::class.java)
+    startActivity(intent)
+  // ทำสิ่งที่ต้องการกับประเภทร่างกาย เช่น ส่งไปยังที่อื่นตามที่ต้องการ
   }
 
 
