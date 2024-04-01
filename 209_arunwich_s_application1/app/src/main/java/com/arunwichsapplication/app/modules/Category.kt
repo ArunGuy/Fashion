@@ -732,6 +732,7 @@ annotation class BootcutJeans
 
 // Palazzo Pants
 @HourglassBodyClothing(nameThai = "กางเกงทรงพาลาซโซ", nameEnglish = "Palazzo Pants")
+@PearBodyClothing(nameThai = "กางเกงทรงพาลาซโซ", nameEnglish = "Palazzo Pants")
 @Category("Palazzo Pants")
 annotation class PalazzoPants
 
@@ -756,3 +757,407 @@ annotation class TankTops
 @InvertedTriangleBodyClothing(nameThai = "แจ็คเก็ตที่มีขนาดพอดีกับรูปร่าง", nameEnglish = "Structured Jacket")
 @Category("Structured Jacket")
 annotation class StructuredJacket
+
+
+@AppleBodyClothing(nameThai = "แจ็คเก็ต", nameEnglish = "Jacket")
+annotation class Jacket
+
+@AppleBodyClothing(nameThai = "เสื้อคอกลมเข้ารูป", nameEnglish = "Fitted Round Neck Top")
+annotation class FittedRoundNeckTop
+
+@AppleBodyClothing(nameThai = "เสื้อยืด", nameEnglish = "T-shirt")
+annotation class TShirt
+
+@AppleBodyClothing(nameThai = "เสื้อเปิดไหล่", nameEnglish = "Off-shoulder Top")
+annotation class OffShoulderTop
+
+@AppleBodyClothing(nameThai = "เสื้อยาวปิดสะโพก", nameEnglish = "Long Top")
+annotation class LongTop
+
+@AppleBodyClothing(nameThai = "เสื้อเชิ้ตคอปก", nameEnglish = "Button-up Shirt")
+annotation class ButtonUpShirt
+
+@AppleBodyClothing(nameThai = "เสื้อทรง Trapeze", nameEnglish = "Trapeze Top")
+@InvertedTriangleBodyClothing(nameThai = "เสื้อทรง Trapeze", nameEnglish = "Trapeze Top")
+annotation class TrapezeTop
+
+@AppleBodyClothing(nameThai = "เสื้อทรง Wrap", nameEnglish = "Wrap Top")
+annotation class WrapTop
+
+@AppleBodyClothing(nameThai = "เสื้อทรง Empire", nameEnglish = "Empire Top")
+annotation class EmpireTop
+
+@AppleBodyClothing(nameThai = "เสื้อทรง Tunic", nameEnglish = "Tunic Top")
+annotation class TunicTop
+
+@AppleBodyClothing(nameThai = "เสื้อยืดปล่อยชาย", nameEnglish = "Loose T-shirt")
+annotation class LooseTShirt
+
+
+
+@AppleBodyClothing(nameThai = "กางเกงเอวสูง", nameEnglish = "High-Waisted Pants")
+annotation class HighWaistedPants
+
+
+@AppleBodyClothing(nameThai = "กางเกงขาสั้นทรงเอ", nameEnglish = "A-line Shorts")
+annotation class ALineShorts
+
+@AppleBodyClothing(nameThai = "กางเกงยีนส์ขาม้า", nameEnglish = "Wide Leg Jeans")
+annotation class WideLegJeans
+
+
+
+@AppleBodyClothing(nameThai = "กางเกงยีนส์ขาบาน", nameEnglish = "Flared Jeans")
+annotation class FlaredJeans
+
+
+@AppleBodyClothing(nameThai = "กระโปรงจีบ", nameEnglish = "A-line Skirt")
+annotation class ALineSkirt
+
+@AppleBodyClothing(nameThai = "กระโปรงทรงเอ", nameEnglish = "Straight Skirt")
+annotation class StraightSkirt
+
+@AppleBodyClothing(nameThai = "กระโปรงทรงทิวลิป", nameEnglish = "Tulip Skirt")
+@InvertedTriangleBodyClothing(nameThai = "กระโปรงทรงทิวลิป", nameEnglish = "Tulip Skirt")
+annotation class TulipSkirt
+
+@AppleBodyClothing(nameThai = "กระโปรงทรงบอลลูน", nameEnglish = "Bubble Skirt")
+annotation class BubbleSkirt
+
+@AppleBodyClothing(nameThai = "กระโปรงทรง Bias", nameEnglish = "Bias Skirt")
+annotation class BiasSkirt
+
+@AppleBodyClothing(nameThai = "กระโปรงทรงระฆัง", nameEnglish = "Bell Skirt")
+annotation class BellSkirt
+
+@AppleBodyClothing(nameThai = "กระโปรงทรงยิปซี", nameEnglish = "Yippee Skirt")
+annotation class YippeeSkirt
+
+@AppleBodyClothing(nameThai = "กระโปรงทรง Asymmetric", nameEnglish = "Asymmetric Skirt")
+annotation class AsymmetricSkirt
+
+
+@AppleBodyClothing(nameThai = "Empire Waist Dress", nameEnglish = "Empire Waist Dress")
+annotation class EmpireWaistDress
+
+@AppleBodyClothing(nameThai = "Wrap dress", nameEnglish = "Wrap Dress")
+annotation class WrapDress
+
+@AppleBodyClothing(nameThai = "Bias dress", nameEnglish = "Bias Cut Dress")
+annotation class BiasCutDress
+
+@AppleBodyClothing(nameThai = "Shift dress", nameEnglish = "Shift Dress")
+annotation class ShiftDress
+
+@HourglassBodyClothing(nameThai = "เสื้อคอวีทรงสลิม", nameEnglish = "Slim Fit V-neck Top")
+annotation class SlimFitVNeckTop
+
+@HourglassBodyClothing(nameThai = "เสื้อคอเหลี่ยมทรงสลิม", nameEnglish = "Slim Fit Square Neck Top")
+annotation class SlimFitSquareNeckTop
+
+@HourglassBodyClothing(nameThai = "เสื้อยืดทรงสลิมฟิต", nameEnglish = "Slim Fit Stretchy Top")
+annotation class SlimFitStretchyTop
+
+@HourglassBodyClothing(nameThai = "เสื้อพอดีตัว", nameEnglish = "Fitted Top")
+annotation class FittedTop
+
+@HourglassBodyClothing(nameThai = "เสื้อ Wrap", nameEnglish = "Wrap Top")
+annotation class WrapTop2
+
+@HourglassBodyClothing(nameThai = "เสื้อทรง Peplum", nameEnglish = "Peplum Top")
+annotation class PeplumTop
+
+@HourglassBodyClothing(nameThai = "เสื้อเข้ารูป", nameEnglish = "Form-fitting Top")
+annotation class FormFittingTop
+
+@HourglassBodyClothing(nameThai = "สกินนี่ยีนส์", nameEnglish = "Skinny Jeans")
+annotation class SkinnyJeans2
+
+@HourglassBodyClothing(nameThai = "กางเกงขากว้าง", nameEnglish = "Wide Leg Pants")
+annotation class WideLegPants2
+
+@HourglassBodyClothing(nameThai = "กางเกงขาบาน", nameEnglish = "Flared Pants")
+annotation class FlaredPants
+
+@HourglassBodyClothing(nameThai = "กางเกงยีนส์ขาม้า", nameEnglish = "Wide Leg Jeans")
+annotation class WideLegJeans2
+
+@HourglassBodyClothing(nameThai = "กางเกงยีนส์กระบอกเล็ก", nameEnglish = "Skinny Jeans (Small Waist)")
+annotation class SkinnyJeansSmallWaist
+
+@HourglassBodyClothing(nameThai = "กางเกงยีนส์กระบอกใหญ่", nameEnglish = "Skinny Jeans (Big Waist)")
+annotation class SkinnyJeansBigWaist
+
+@HourglassBodyClothing(nameThai = "กางเกงยีนส์ขาบาน", nameEnglish = "Flared Jeans")
+annotation class FlaredJeans2
+
+@HourglassBodyClothing(nameThai = "กระโปรงเอวสูง", nameEnglish = "High-Waisted Skirt")
+annotation class HighWaistedSkirt2
+
+@HourglassBodyClothing(nameThai = "กระโปรงทรงดินสอ", nameEnglish = "Pencil Skirt")
+annotation class PencilSkirt2
+
+@HourglassBodyClothing(nameThai = "กระโปรงจีบ", nameEnglish = "A-line Skirt")
+annotation class ALineSkirt2
+
+@HourglassBodyClothing(nameThai = "กระโปรงทรงเอ", nameEnglish = "Straight Skirt")
+annotation class StraightSkirt2
+
+@HourglassBodyClothing(nameThai = "กระโปรงทรงทิวลิป", nameEnglish = "Tulip Skirt")
+annotation class TulipSkirt2
+
+@HourglassBodyClothing(nameThai = "Peoplum dress", nameEnglish = "Peplum Dress")
+annotation class PeplumDress
+
+@HourglassBodyClothing(nameThai = "Wrop dress", nameEnglish = "Wrap Dress")
+annotation class WrapDress2
+
+@HourglassBodyClothing(nameThai = "Bias dress", nameEnglish = "Bias Cut Dress")
+annotation class BiasCutDress2
+
+@HourglassBodyClothing(nameThai = "Shift dress", nameEnglish = "Shift Dress")
+annotation class ShiftDress2
+
+@HourglassBodyClothing(nameThai = "Panelled waist", nameEnglish = "Panelled Waist Dress")
+@InvertedTriangleBodyClothing(nameThai = "Panelled waist", nameEnglish = "Panelled Waist Dress")
+annotation class PanelledWaistDress
+
+
+@PearBodyClothing(nameThai = "เสื้อคอกว้าง", nameEnglish = "Wide Neck Top")
+annotation class WideNeckTop
+
+@PearBodyClothing(nameThai = "เบลเซอร์แบบยาว", nameEnglish = "Long Blazer")
+annotation class LongBlazer
+
+@PearBodyClothing(nameThai = "เสื้อทูนิค", nameEnglish = "Tunic Top")
+annotation class TunicTop2
+
+@PearBodyClothing(nameThai = "เสื้อคอเหลี่ยม", nameEnglish = "Square Neck Top")
+annotation class SquareNeckTop
+
+@PearBodyClothing(nameThai = "เสื้อรัดรูป", nameEnglish = "Form-fitting Top")
+annotation class FormFittingTop2
+
+@PearBodyClothing(nameThai = "เสื้อปาดไหล่", nameEnglish = "Off-shoulder Top")
+annotation class OffShoulderTop2
+
+@PearBodyClothing(nameThai = "เสื้อแขนเล็ก", nameEnglish = "Short-sleeve Top")
+annotation class ShortSleeveTop
+
+@PearBodyClothing(nameThai = "เสื้อครอป", nameEnglish = "Crop Top")
+annotation class CropTop
+
+@PearBodyClothing(nameThai = "เสื้อทรง Wrap", nameEnglish = "Wrap Top")
+annotation class WrapTop3
+
+@PearBodyClothing(nameThai = "เสื้อทรง Raffle", nameEnglish = "Ruffle Top")
+annotation class RuffleTop
+
+@PearBodyClothing(nameThai = "เสื้อลายทาง", nameEnglish = "Striped Top")
+annotation class StripedTop
+
+@PearBodyClothing(nameThai = "เสื้อที่มีลูกเล่นตรงอก", nameEnglish = "Embellished Top")
+annotation class EmbellishedTop
+
+@PearBodyClothing(nameThai = "กางเกงทรงกระบอก", nameEnglish = "Bootcut Pants")
+annotation class BootcutPants2
+
+@PearBodyClothing(nameThai = "กางเกงทรงเอ", nameEnglish = "Straight-leg Pants")
+annotation class StraightLegPants3
+
+@PearBodyClothing(nameThai = "กางเกงทรงบาน", nameEnglish = "Flared Pants")
+annotation class FlaredPants3
+
+
+@PearBodyClothing(nameThai = "กางเกงขาสั้นทรงเอ", nameEnglish = "A-line Shorts")
+annotation class ALineShorts2
+
+@PearBodyClothing(nameThai = "กางเกงขากว้าง", nameEnglish = "Wide Leg Pants")
+annotation class WideLegPants3
+
+@PearBodyClothing(nameThai = "กางเกง Bootcut", nameEnglish = "Bootcut Pants")
+annotation class BootcutPants3
+
+@PearBodyClothing(nameThai = "กางเกงยีนส์ขาม้า", nameEnglish = "Wide Leg Jeans")
+annotation class WideLegJeans3
+
+@PearBodyClothing(nameThai = "กางเกงยีนส์กระบอกใหญ่", nameEnglish = "Skinny Jeans (Big Waist)")
+annotation class SkinnyJeansBigWaist2
+
+@PearBodyClothing(nameThai = "กางเกงยีนส์ขาบาน", nameEnglish = "Flared Jeans")
+annotation class FlaredJeans3
+
+@PearBodyClothing(nameThai = "กระโปรงทรงเอ", nameEnglish = "Straight Skirt")
+annotation class StraightSkirt3
+
+@PearBodyClothing(nameThai = "กระโปรงพลีท", nameEnglish = "Pleated Skirt")
+annotation class PleatedSkirt
+
+@PearBodyClothing(nameThai = "กระโปรงทรง Bias", nameEnglish = "Bias Cut Skirt")
+annotation class BiasCutSkirt
+
+@PearBodyClothing(nameThai = "กระโปรงทรงดินสอ", nameEnglish = "Pencil Skirt")
+annotation class PencilSkirt3
+
+@PearBodyClothing(nameThai = "เดรสเกาะอก", nameEnglish = "Off-shoulder Dress")
+annotation class OffShoulderDress
+
+@PearBodyClothing(nameThai = "tulip-dress", nameEnglish = "Tulip Dress")
+annotation class TulipDress
+
+@PearBodyClothing(nameThai = "A-line dress", nameEnglish = "A-line Dress")
+annotation class ALineDress2
+
+@PearBodyClothing(nameThai = "Wrop dress", nameEnglish = "Wrap Dress")
+annotation class WrapDress3
+
+@PearBodyClothing(nameThai = "Empire dress", nameEnglish = "Empire Dress")
+annotation class EmpireDress
+
+@PearBodyClothing(nameThai = "X-line dress", nameEnglish = "X-line Dress")
+annotation class XLineDress
+
+@RectangleBodyClothing(nameThai = "เสื้อคอรูปหัวใจ", nameEnglish = "Sweetheart Neckline Top")
+annotation class SweetheartNecklineTop
+
+@RectangleBodyClothing(nameThai = "เสื้อคอ V", nameEnglish = "V-neck Top")
+annotation class VNeckTop2
+
+@RectangleBodyClothing(nameThai = "เสื้อกล้าม", nameEnglish = "Sleeveless Top")
+annotation class SleevelessTop
+
+@RectangleBodyClothing(nameThai = "เสื้อทรง Peplum", nameEnglish = "Peplum Top")
+annotation class PeplumTop2
+
+@RectangleBodyClothing(nameThai = "เสื้อ Wrap", nameEnglish = "Wrap Top")
+annotation class WrapTop4
+
+@RectangleBodyClothing(nameThai = "เสื้อ Ruffle", nameEnglish = "Ruffle Top")
+annotation class RuffleTop2
+
+@RectangleBodyClothing(nameThai = "เสื้อที่มีลูกเล่น", nameEnglish = "Embellished Top")
+annotation class EmbellishedTop2
+
+@RectangleBodyClothing(nameThai = "กางเกงทรงเอ", nameEnglish = "Straight-leg Pants")
+annotation class StraightLegPants4
+
+@RectangleBodyClothing(nameThai = "สกินนี่ยีนส์", nameEnglish = "Skinny Jeans")
+annotation class SkinnyJeans4
+
+@RectangleBodyClothing(nameThai = "กางเกงยีนส์ขาม้า", nameEnglish = "Wide Leg Jeans")
+annotation class WideLegJeans4
+
+@RectangleBodyClothing(nameThai = "กางเกงยีนส์กระบอกเล็ก", nameEnglish = "Skinny Jeans (Small Waist)")
+annotation class SkinnyJeansSmallWaist2
+
+@RectangleBodyClothing(nameThai = "กางเกงยีนส์กระบอกใหญ่", nameEnglish = "Skinny Jeans (Big Waist)")
+annotation class SkinnyJeansBigWaist3
+
+@RectangleBodyClothing(nameThai = "กางเกงยีนส์ขาบาน", nameEnglish = "Flared Jeans")
+annotation class FlaredJeans4
+
+@RectangleBodyClothing(nameThai = "กางเกงทรง boot cut", nameEnglish = "Bootcut Pants")
+annotation class BootcutPants4
+
+@RectangleBodyClothing(nameThai = "กระโปรงทรงสอบ", nameEnglish = "Pencil Skirt")
+annotation class PencilSkirt4
+
+@RectangleBodyClothing(nameThai = "กระโปรงทรงระบาย", nameEnglish = "Tiered Skirt")
+annotation class TieredSkirt
+
+@RectangleBodyClothing(nameThai = "กระโปรงทรงเอ", nameEnglish = "Straight Skirt")
+annotation class StraightSkirt4
+
+@RectangleBodyClothing(nameThai = "กระโปรงทรงบาน", nameEnglish = "Flared Skirt")
+annotation class FlaredSkirt4
+
+@RectangleBodyClothing(nameThai = "กระโปรงทรงดินสอ", nameEnglish = "Pencil Skirt")
+annotation class PencilSkirt5
+
+@RectangleBodyClothing(nameThai = "กระโปรงทรงบอลลูน", nameEnglish = "Ballgown Skirt")
+annotation class BallgownSkirt
+
+@RectangleBodyClothing(nameThai = "Empire dress", nameEnglish = "Empire Dress")
+annotation class EmpireDress2
+
+@RectangleBodyClothing(nameThai = "Princess seams", nameEnglish = "Princess Seams Dress")
+annotation class PrincessSeamsDress
+
+@RectangleBodyClothing(nameThai = "X-line dress", nameEnglish = "X-line Dress")
+annotation class XLineDress2
+
+@RectangleBodyClothing(nameThai = "Wrap dress", nameEnglish = "Wrap Dress")
+annotation class WrapDress4
+
+@RectangleBodyClothing(nameThai = "Shift dress", nameEnglish = "Shift Dress")
+annotation class ShiftDress3
+
+@InvertedTriangleBodyClothing(nameThai = "เสื้อกล้าม", nameEnglish = "Muscle Tank Top")
+annotation class MuscleTankTop
+
+@InvertedTriangleBodyClothing(nameThai = "เสื้อคอ V", nameEnglish = "V-neck Top")
+annotation class VNeckTop3
+
+@InvertedTriangleBodyClothing(nameThai = "เบลเซอร์", nameEnglish = "Blazer")
+annotation class Blazer
+
+
+
+@InvertedTriangleBodyClothing(nameThai = "เสื้อทรง Peplum", nameEnglish = "Peplum Top")
+annotation class PeplumTop3
+
+@InvertedTriangleBodyClothing(nameThai = "เสื้อขนาดพอดีตัว", nameEnglish = "Fitted Top")
+annotation class FittedTop3
+
+@InvertedTriangleBodyClothing(nameThai = "เสื้อ Wrap", nameEnglish = "Wrap Top")
+annotation class WrapTop5
+
+@InvertedTriangleBodyClothing(nameThai = "เสื้อเข้ารูป", nameEnglish = "Form-fitting Top")
+annotation class FormFittingTop3
+
+@InvertedTriangleBodyClothing(nameThai = "กางเกงทรงเอ", nameEnglish = "Straight-leg Pants")
+annotation class StraightLegPants5
+
+@InvertedTriangleBodyClothing(nameThai = "สกินนี่ยีนส์", nameEnglish = "Skinny Jeans")
+annotation class SkinnyJeans5
+
+@InvertedTriangleBodyClothing(nameThai = "กางเกงยีนส์ขาม้า", nameEnglish = "Wide Leg Jeans")
+annotation class WideLegJeans5
+
+@InvertedTriangleBodyClothing(nameThai = "กางเกงยีนส์ทรงบอย", nameEnglish = "Boyfriend Jeans")
+annotation class BoyfriendJeans
+
+@InvertedTriangleBodyClothing(nameThai = "กางเกงยีนส์ขาบาน", nameEnglish = "Flared Jeans")
+annotation class FlaredJeans5
+
+@InvertedTriangleBodyClothing(nameThai = "กางเกงยีนส์ขากระดิ่ง", nameEnglish = "Bell-bottom Jeans")
+annotation class BellBottomJeans
+
+@InvertedTriangleBodyClothing(nameThai = "กระโปรงทรงเอ", nameEnglish = "Straight Skirt")
+annotation class StraightSkirt5
+
+@InvertedTriangleBodyClothing(nameThai = "กระโปรงทรงดินสอ", nameEnglish = "Pencil Skirt")
+annotation class PencilSkirt6
+
+
+@InvertedTriangleBodyClothing(nameThai = "กระโปรงทรงระบาย", nameEnglish = "Tiered Skirt")
+annotation class TieredSkirt2
+
+@InvertedTriangleBodyClothing(nameThai = "กระโปรงทรงป้าย", nameEnglish = "Tag Skirt")
+annotation class TagSkirt
+
+@InvertedTriangleBodyClothing(nameThai = "กระโปรงทรง Bias", nameEnglish = "Bias Cut Skirt")
+annotation class BiasCutSkirt2
+
+@InvertedTriangleBodyClothing(nameThai = "Shift dress", nameEnglish = "Shift Dress")
+annotation class ShiftDress4
+
+@InvertedTriangleBodyClothing(nameThai = "Pleated dress", nameEnglish = "Pleated Dress")
+annotation class PleatedDress
+
+@InvertedTriangleBodyClothing(nameThai = "A-line dress", nameEnglish = "A-line Dress")
+annotation class ALineDress3
+
+
+@InvertedTriangleBodyClothing(nameThai = "Nipped dress", nameEnglish = "Nipped Dress")
+annotation class NippedDress
