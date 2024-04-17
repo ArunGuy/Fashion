@@ -52,8 +52,8 @@
         <ImageView
             android:id="@+id/imageImageEight"
             imageRes="@{@drawable/img_image8}"
-            android:layout_width="@dimen/_300pxh"
-            android:layout_height="@dimen/_220pxh"
+            android:layout_width="288dp"
+            android:layout_height="192dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="@dimen/_23pxh"
             android:layout_marginTop="@dimen/_30pxh"
@@ -203,7 +203,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="@string/lbl_cm"
+                android:text="@string/kg"
                 android:textSize="@dimen/_15pxh"
                 tools:ignore="TextSizeCheck" />
 

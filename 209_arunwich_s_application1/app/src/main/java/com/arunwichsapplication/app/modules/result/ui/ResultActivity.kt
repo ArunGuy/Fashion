@@ -14,6 +14,7 @@ import kotlin.Int
 import kotlin.String
 import kotlin.Unit
 
+
 class ResultActivity : BaseActivity<ActivityResultBinding>(R.layout.activity_result) {
   private val viewModel: ResultVM by viewModels<ResultVM>()
 
