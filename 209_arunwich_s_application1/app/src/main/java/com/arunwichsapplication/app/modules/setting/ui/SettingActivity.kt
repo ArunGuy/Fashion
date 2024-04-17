@@ -17,7 +17,7 @@ class SettingActivity : BaseActivity<ActivitySettingBinding>(R.layout.activity_s
   }
 
   override fun setUpClicks(): Unit {
-    binding.imageArrowleft.setOnClickListener {
+    binding.right1.setOnClickListener {
       finish()
     }
   }

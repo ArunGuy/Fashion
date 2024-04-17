@@ -10,6 +10,7 @@ import com.arunwichsapplication.app.appcomponents.facebookauth.FacebookHelper
 import com.arunwichsapplication.app.appcomponents.googleauth.GoogleHelper
 import com.arunwichsapplication.app.databinding.ActivityLogInBinding
 import com.arunwichsapplication.app.modules.login.`data`.viewmodel.LogInVM
+import com.arunwichsapplication.app.modules.prop.ui.PropActivity
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
@@ -62,6 +63,12 @@ class LogInActivity : BaseActivity<ActivityLogInBinding>(R.layout.activity_log_i
           }
           })
         }
+
+      binding.btnLogInOne.setOnClickListener {
+        // Navigate to ProporActivity
+        val intent = Intent(this, PropActivity::class.java)
+        startActivity(intent)
+      }
       }
 
       companion object {
