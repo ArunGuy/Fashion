@@ -8,121 +8,60 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="vertical" style="@style/groupStylewhite_A700">
-        <View android:background="@color/bluegray_50"
+
+        <View
             android:id="@+id/viewFrame2443"
-            android:layout_height="@dimen/_165pxh" android:layout_width="@dimen/_165pxh"/>
-        <LinearLayout android:gravity="start"
+            android:layout_width="191dp"
+            android:layout_height="@dimen/_165pxh"
+            android:background="@drawable/dress" />
+
+        <LinearLayout
             android:id="@+id/linearColumnfive"
+            style="@style/groupStylewhite_A700"
+            android:layout_width="191dp"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:orientation="vertical" style="@style/groupStylewhite_A700">
-            <TextView android:ellipsize="end" android:id="@+id/txtFive"
+            android:gravity="start"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtFive"
+                style="@style/txtIntermedium13"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_10pxh"
                 android:layout_marginStart="@dimen/_10pxh"
                 android:layout_marginTop="@dimen/_8pxv"
-                android:layout_width="wrap_content"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:ellipsize="end"
                 android:singleLine="true"
                 android:text="@{resultRowModel.txtFive}"
-                style="@style/txtIntermedium13" tools:text="@string/lbl"/>
-            <TextView android:ellipsize="end" android:id="@+id/txtSix"
+                tools:ignore="TextSizeCheck"
+                tools:text="@string/lbl" />
+
+            <TextView
+                android:id="@+id/txtSix"
+                style="@style/txtIntermedium14_2"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_10pxh"
                 android:layout_marginStart="@dimen/_10pxh"
                 android:layout_marginTop="@dimen/_6pxv"
-                android:layout_width="wrap_content"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:ellipsize="end"
                 android:singleLine="true"
                 android:text="@{resultRowModel.txtSix}"
-                style="@style/txtIntermedium14_2" tools:text="@string/lbl2"/>
-            <LinearLayout android:gravity="start"
-                android:id="@+id/linearRowvectorthirtyone"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_12pxh"
-                android:layout_marginStart="@dimen/_12pxh"
-                android:layout_marginTop="@dimen/_4pxv"
-                android:layout_width="match_parent" android:orientation="horizontal">
-                <ImageView android:id="@+id/imageVectorThirtyOne"
-                    android:layout_height="@dimen/_5pxh"
-                    android:layout_marginBottom="@dimen/_4pxv"
-                    android:layout_marginTop="@dimen/_3pxv"
-                    android:layout_width="@dimen/_5pxh"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/img_vector31"
-                    tools:ignore="ContentDescription" tools:src="@drawable/img_vector31"/>
-                <ImageView android:id="@+id/imageVectorThirtyOneOne"
-                    android:layout_height="@dimen/_5pxh"
-                    android:layout_marginBottom="@dimen/_4pxv"
-                    android:layout_marginStart="@dimen/_4pxh"
-                    android:layout_marginTop="@dimen/_3pxv"
-                    android:layout_width="@dimen/_5pxh"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/img_vector31"
-                    tools:ignore="ContentDescription" tools:src="@drawable/img_vector31"/>
-                <ImageView android:id="@+id/imageVectorThirtyOneTwo"
-                    android:layout_height="@dimen/_5pxh"
-                    android:layout_marginBottom="@dimen/_4pxv"
-                    android:layout_marginStart="@dimen/_4pxh"
-                    android:layout_marginTop="@dimen/_3pxv"
-                    android:layout_width="@dimen/_5pxh"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/img_vector31"
-                    tools:ignore="ContentDescription" tools:src="@drawable/img_vector31"/>
-                <ImageView android:id="@+id/imageVectorThirtyOneThree"
-                    android:layout_height="@dimen/_5pxh"
-                    android:layout_marginBottom="@dimen/_4pxv"
-                    android:layout_marginStart="@dimen/_4pxh"
-                    android:layout_marginTop="@dimen/_3pxv"
-                    android:layout_width="@dimen/_5pxh"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/img_vector31"
-                    tools:ignore="ContentDescription" tools:src="@drawable/img_vector31"/>
-                <ImageView android:id="@+id/imageVectorThirtyOneFour"
-                    android:layout_height="@dimen/_5pxh"
-                    android:layout_marginBottom="@dimen/_4pxv"
-                    android:layout_marginStart="@dimen/_4pxh"
-                    android:layout_marginTop="@dimen/_3pxv"
-                    android:layout_width="@dimen/_5pxh"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/img_vector31"
-                    tools:ignore="ContentDescription" tools:src="@drawable/img_vector31"/>
-                <TextView android:ellipsize="end"
-                    android:id="@+id/txtNumbersold"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_2pxh"
-                    android:layout_weight="0.67"
-                    android:layout_width="0dp"
-                    android:lineSpacingExtra="@dimen/_3pxh"
-                    android:singleLine="true"
-                    android:text="@{resultRowModel.txtNumbersold}"
-                    style="@style/txtInterregular10" tools:text="@string/lbl_number_sold"/>
-            </LinearLayout>
-            <LinearLayout android:gravity="start"
+                android:textColor="#1976D2"
+                tools:ignore="TextSizeCheck"
+                tools:text="@string/lbl2" />
+
+            <LinearLayout
                 android:id="@+id/linearRowvector"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_8pxv"
-                android:layout_marginEnd="@dimen/_12pxh"
                 android:layout_marginStart="@dimen/_12pxh"
                 android:layout_marginTop="@dimen/_2pxv"
-                android:layout_width="wrap_content" android:orientation="horizontal">
-                <ImageView android:id="@+id/imageVectorOne"
-                    android:layout_height="@dimen/_7pxh"
-                    android:layout_marginBottom="@dimen/_3pxv"
-                    android:layout_marginTop="@dimen/_2pxv"
-                    android:layout_width="@dimen/_5pxh"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/img_vector_gray_500"
-                    tools:ignore="ContentDescription" tools:src="@drawable/img_vector_gray_500"/>
-                <TextView android:ellipsize="end"
-                    android:id="@+id/txtSeven"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_4pxh"
-                    android:layout_weight="0.83"
-                    android:layout_width="0dp"
-                    android:lineSpacingExtra="@dimen/_3pxh"
-                    android:singleLine="true"
-                    android:text="@{resultRowModel.txtSeven}"
-                    style="@style/txtInterregular10_1" tools:text="@string/lbl5"/>
-            </LinearLayout>
+                android:layout_marginEnd="@dimen/_12pxh"
+                android:layout_marginBottom="@dimen/_8pxv"
+                android:gravity="start"
+                android:orientation="horizontal" />
         </LinearLayout>
     </LinearLayout>
 </layout>

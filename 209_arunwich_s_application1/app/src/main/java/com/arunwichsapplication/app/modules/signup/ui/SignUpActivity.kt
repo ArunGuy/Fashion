@@ -16,6 +16,11 @@ import com.facebook.login.LoginResult
 import kotlin.Int
 import kotlin.String
 import kotlin.Unit
+import android.os.Bundle
+import android.widget.Toast
+import androidx.activity.viewModels
+import com.arunwichsapplication.app.modules.DatabaseHelper
+import com.arunwichsapplication.app.modules.login.ui.LogInActivity
 
 class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sign_up) {
   private val viewModel: SignUpVM by viewModels<SignUpVM>()
@@ -26,6 +31,40 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
 
   private val facebookLogin: FacebookHelper = FacebookHelper()
 
+  private lateinit var databaseHelper: DatabaseHelper
+
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    binding.signUpVM = viewModel // ไม่แน่ใจว่าต้องใส่ viewModel หรือไม่
+    databaseHelper = DatabaseHelper(this)
+
+    binding.btnSignUpOne.setOnClickListener {
+      val email = binding.txtFrameThree.text.toString().trim()
+      val password = binding.txtPassword.text.toString().trim()
+      val phone = binding.txtPhone.text.toString().trim()
+
+      if (email.isNotEmpty() && password.isNotEmpty() && phone.isNotEmpty()) {
+        val isInserted = databaseHelper.addUser(email, password, phone)
+        if (isInserted) {
+          Toast.makeText(this, "User added successfully!", Toast.LENGTH_SHORT).show()
+          // ทำต่อไปเช่นเปลี่ยนหน้าหรือทำอย่างอื่นตามที่ต้องการ
+          val intent = Intent(this, LogInActivity::class.java)
+          startActivity(intent)
+        } else {
+          Toast.makeText(this, "User already exists!", Toast.LENGTH_SHORT).show()
+        }
+      } else {
+        Toast.makeText(this, "Please fill in all fields!", Toast.LENGTH_SHORT).show()
+      }
+    }
+
+    binding.txtLogin.setOnClickListener {
+      // Navigate to SignUpActivity
+      val intent = Intent(this, LogInActivity::class.java)
+      startActivity(intent)
+    }
+
+  }
   override fun onActivityResult(
     requestCode: Int,
     resultCode: Int,
