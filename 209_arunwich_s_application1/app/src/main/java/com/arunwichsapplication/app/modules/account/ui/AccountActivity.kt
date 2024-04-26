@@ -24,11 +24,7 @@ class AccountActivity : BaseActivity<ActivityAccountBinding>(R.layout.activity_a
   override fun setUpClicks() {
 
 
-    binding.linearHome.setOnClickListener {
-      // Navigate to HomeActivity
-      val intent = Intent(this, AccountActivity::class.java)
-      startActivity(intent)
-    }
+
 
     binding.linearCart.setOnClickListener {
       // Navigate to CartActivity

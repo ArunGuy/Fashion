@@ -6,229 +6,281 @@
         <variable name="propVM" type="com.arunwichsapplication.app.modules.prop.data.viewmodel.PropVM"/>
     </data>
 
-    <LinearLayout
-        android:id="@+id/linearProp"
-        style="@style/groupStyleyellow_50"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="815dp"
-        android:gravity="start"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:background="#FFFAEE">
 
-        <LinearLayout
-            android:id="@+id/linearHead"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_47pxh"
-            android:layout_marginTop="@dimen/_30pxv"
-            android:layout_marginEnd="@dimen/_47pxh"
-            android:gravity="start"
-            android:orientation="horizontal">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="770dp"
+            android:background="@drawable/head_white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/imageArrowleft"
-                android:layout_width="@dimen/_6pxh"
-                android:layout_height="@dimen/_12pxh"
-                android:layout_marginTop="@dimen/_6pxv"
-                android:layout_marginBottom="@dimen/_5pxv"
-                android:scaleType="fitXY"
-                android:src="@drawable/img_arrowleft"
-                tools:ignore="ContentDescription"
-                tools:src="@drawable/img_arrowleft" />
+                android:id="@+id/imageView11"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="55dp"
+                android:layout_marginBottom="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/arrow_left"
+                android:contentDescription="@null"/>
 
             <TextView
-                android:id="@+id/txtPROPORTIONS"
-                style="@style/txtIntersemibold20"
-                android:layout_width="0dp"
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_72pxh"
-                android:layout_weight="0.96"
-                android:ellipsize="end"
-                android:singleLine="true"
+                android:layout_marginStart="110dp"
+                android:layout_marginTop="55dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/intersemibold"
+                android:text="@string/proportions"
+                android:textAlignment="center"
+                android:textColor="#22284B"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView11"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                tools:ignore="TextSizeCheck"
-                tools:text="@string/lbl_proportions" />
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
-            android:id="@+id/imageImageEight"
-            imageRes="@{@drawable/img_image8}"
-            android:layout_width="288dp"
-            android:layout_height="192dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="@dimen/_23pxh"
-            android:layout_marginTop="@dimen/_30pxh"
-            android:layout_marginEnd="@dimen/_23pxh"
-            android:scaleType="fitXY"
-            tools:ignore="ContentDescription,VisualLintBounds"
-            tools:src="@drawable/img_image8" />
-
-         <LinearLayout
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:padding="@dimen/_5pxh"
-             android:layout_gravity="center"
-             tools:ignore="VisualLintBounds">
-
-             <EditText
-                 android:id="@+id/linearWaistline"
-                 android:layout_width="274dp"
-                 android:layout_height="50dp"
-                 android:layout_gravity="center_horizontal"
-                 android:hint="Waistline"
-                 android:textAlignment="center"
-                 android:textColor="@color/black_900"
-                 android:textSize="@dimen/_20pxh"
-                 tools:ignore="VisualLintBounds,TextSizeCheck,DuplicateSpeakableTextCheck"></EditText>
-
-             <TextView
-                 android:id="@+id/txtInch"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_gravity="center_vertical"
-                 android:text="@string/lbl_inch"
-                 android:textSize="@dimen/_15pxh"
-                 tools:ignore="TextSizeCheck" />
-
-
-         </LinearLayout>
-
-        <LinearLayout
+            android:id="@+id/imageView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/_5pxh"
-            android:layout_gravity="center"
-            tools:ignore="VisualLintBounds">
+            android:layout_marginTop="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
 
-            <EditText
-                android:id="@+id/linearChest"
-                android:layout_width="274dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_horizontal"
-                android:hint="Chest"
-                android:textAlignment="center"
-                android:textColor="@color/black_900"
-                android:textSize="@dimen/_20pxh"
-                tools:ignore="VisualLintBounds,TextSizeCheck"></EditText>
-
-            <TextView
-                android:id="@+id/txtInch2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/lbl_inch"
-                android:textSize="@dimen/_15pxh"
-                tools:ignore="TextSizeCheck" />
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/_5pxh"
-            android:layout_gravity="center"
-            tools:ignore="VisualLintBounds">
-
-            <EditText
-                android:id="@+id/linearHip"
-                android:layout_width="274dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_horizontal"
-                android:hint="Hip"
-                android:textAlignment="center"
-                android:textColor="@color/black_900"
-                android:textSize="@dimen/_20pxh"
-                tools:ignore="VisualLintBounds,TextSizeCheck"></EditText>
-
-            <TextView
-                android:id="@+id/txtInch3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/lbl_inch"
-                android:textSize="@dimen/_15pxh"
-                tools:ignore="TextSizeCheck" />
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/_5pxh"
-            android:layout_gravity="center"
-            tools:ignore="VisualLintBounds">
-
-            <EditText
-                android:id="@+id/linearHeight"
-                android:layout_width="274dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_horizontal"
-                android:hint="Height"
-                android:textAlignment="center"
-                android:textColor="@color/black_900"
-                android:textSize="@dimen/_20pxh"
-                tools:ignore="VisualLintBounds,TextSizeCheck"></EditText>
-
-            <TextView
-                android:id="@+id/txtcm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/lbl_cm"
-                android:textSize="@dimen/_15pxh"
-                tools:ignore="TextSizeCheck" />
-
-
-        </LinearLayout>
+            app:srcCompat="@drawable/prop_pic"
+            android:contentDescription="@null"/>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/_5pxh"
-            android:layout_gravity="center"
-            tools:ignore="VisualLintBounds">
-
-            <EditText
-                android:id="@+id/linearWeight"
-                android:layout_width="274dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_horizontal"
-                android:hint="Weight"
-                android:textAlignment="center"
-                android:textColor="@color/black_900"
-                android:textSize="@dimen/_20pxh"
-                tools:ignore="VisualLintBounds,TextSizeCheck"></EditText>
-
-            <TextView
-                android:id="@+id/txtInch4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/kg"
-                android:textSize="@dimen/_15pxh"
-                tools:ignore="TextSizeCheck" />
-
-
-        </LinearLayout>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonProcessData"
-            style="@style/btnSolidRounded"
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_23pxh"
-            android:layout_marginTop="@dimen/_2pxv"
-            android:layout_marginEnd="@dimen/_23pxh"
-            android:layout_marginBottom="@dimen/_20pxv"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:paddingStart="@dimen/_30pxh"
-            android:paddingTop="@dimen/_9pxv"
-            android:paddingEnd="@dimen/_30pxh"
-            android:paddingBottom="@dimen/_9pxv"
-            android:singleLine="true"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="35dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView12">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/waist"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/editprop_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/intersemibold"
+                    android:hint="@string/lbl_waistline"
+                    android:inputType="number"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="10dp"
+                    android:textColorHint="#C1C1C1"
+                    android:textSize="16sp"
+                    android:minHeight="48dp" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectprop_bg"
+                    android:fontFamily="@font/intersemibold"
+                    android:paddingTop="10dp"
+                    android:text="@string/lbl_inch"
+                    android:textAlignment="center"
+                    android:textColor="#6588E6"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/chest"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/editprop_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/intersemibold"
+                    android:hint="@string/lbl_chest"
+                    android:inputType="number"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="10dp"
+                    android:textColorHint="#C1C1C1"
+                    android:textSize="16sp"
+                    android:minHeight="48dp" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectprop_bg"
+                    android:fontFamily="@font/intersemibold"
+                    android:paddingTop="10dp"
+                    android:text="@string/lbl_inch"
+                    android:textAlignment="center"
+                    android:textColor="#6588E6"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/hip"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/editprop_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/intersemibold"
+                    android:hint="@string/lbl_hip"
+                    android:inputType="number"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="10dp"
+                    android:textColorHint="#C1C1C1"
+                    android:textSize="16sp"
+                    android:minHeight="48dp" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectprop_bg"
+                    android:fontFamily="@font/intersemibold"
+                    android:paddingTop="10dp"
+                    android:text="@string/lbl_inch"
+                    android:textAlignment="center"
+                    android:textColor="#6588E6"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/height"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/editprop_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/intersemibold"
+                    android:hint="@string/lbl_height"
+                    android:inputType="number"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="10dp"
+                    android:textColorHint="#C1C1C1"
+                    android:textSize="16sp"
+                    android:minHeight="48dp" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectprop_bg"
+                    android:fontFamily="@font/intersemibold"
+                    android:paddingTop="10dp"
+                    android:text="@string/cm"
+                    android:textAlignment="center"
+                    android:textColor="#6588E6"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/weight"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/editprop_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/intersemibold"
+                    android:hint="@string/lbl_weight"
+                    android:inputType="number"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="10dp"
+                    android:textColorHint="#C1C1C1"
+                    android:textSize="16sp"
+                    android:minHeight="48dp" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectprop_bg"
+                    android:fontFamily="@font/intersemibold"
+                    android:paddingTop="10dp"
+                    android:text="@string/kg"
+                    android:textAlignment="center"
+                    android:textColor="#6588E6"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="35dp"
+            android:background="@drawable/blue_button"
+            android:fontFamily="@font/intersemibold"
             android:text="@string/lbl_success"
-            android:textAllCaps="false"
-            tools:ignore="TextSizeCheck,VisualLintButtonSize,VisualLintBounds"
-            tools:text="@string/lbl_success" />
-    </LinearLayout>
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
