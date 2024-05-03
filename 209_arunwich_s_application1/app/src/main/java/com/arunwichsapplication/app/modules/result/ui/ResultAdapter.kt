@@ -1,57 +1,44 @@
 package com.arunwichsapplication.app.modules.result.ui
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.arunwichsapplication.app.R
 import com.arunwichsapplication.app.databinding.RowResultBinding
-import com.arunwichsapplication.app.modules.result.`data`.model.ResultRowModel
-import kotlin.Int
-import kotlin.collections.List
+import com.arunwichsapplication.app.modules.result.data.model.ResultRowModel
 
 class ResultAdapter(
-  var list: List<ResultRowModel>
+  var list: List<ResultRowModel>,
+  private val onItemClick: (position: Int, item: ResultRowModel) -> Unit
 ) : RecyclerView.Adapter<ResultAdapter.RowResultVH>() {
-  private var clickListener: OnItemClickListener? = null
 
-  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RowResultVH {
-    val view=LayoutInflater.from(parent.context).inflate(R.layout.row_result,parent,false)
-    return RowResultVH(view)
-  }
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+    RowResultVH(RowResultBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
   override fun onBindViewHolder(holder: RowResultVH, position: Int) {
-    val resultRowModel = ResultRowModel()
-    // TODO uncomment following line after integration with data source
-    // val resultRowModel = list[position]
-    holder.binding.resultRowModel = resultRowModel
+    holder.bind(list[position], position, onItemClick)
   }
 
-  override fun getItemCount(): Int = 6
-  // TODO uncomment following line after integration with data source
-  // return list.size
+  override fun getItemCount() = list.size
 
-  public fun updateData(newData: List<ResultRowModel>) {
+  fun updateData(newData: List<ResultRowModel>) {
     list = newData
     notifyDataSetChanged()
   }
 
-  fun setOnItemClickListener(clickListener: OnItemClickListener) {
-    this.clickListener = clickListener
-  }
+  inner class RowResultVH(
+    private val binding: RowResultBinding
+  ) : RecyclerView.ViewHolder(binding.root) {
 
-  interface OnItemClickListener {
-    fun onItemClick(
-      view: View,
+    fun bind(
+      item: ResultRowModel,
       position: Int,
-      item: ResultRowModel
+      onItemClick: (position: Int, item: ResultRowModel) -> Unit
     ) {
+      binding.resultRowModel = item
+      binding.imageViewFrame244.setImageResource(item.txtNumbersoldResourceId)
+      binding.root.setOnClickListener { this@ResultAdapter.onItemClick(adapterPosition, item) }
+      binding.executePendingBindings()
     }
   }
 
-  inner class RowResultVH(
-    view: View
-  ) : RecyclerView.ViewHolder(view) {
-    val binding: RowResultBinding = RowResultBinding.bind(itemView)
-  }
 }

@@ -3,26 +3,24 @@ package com.arunwichsapplication.app.modules.result.`data`.model
 import com.arunwichsapplication.app.R
 import com.arunwichsapplication.app.appcomponents.di.MyApp
 import kotlin.String
-
+import android.media.Image
 data class ResultRowModel(
   /**
    * TODO Replace with dynamic value
    */
-  var txtFive: String? = MyApp.getInstance().resources.getString(R.string.lbl)
-  ,
+  var txtFiveResourceId: String? = MyApp.getInstance().resources.getString(R.string.lbl),
   /**
    * TODO Replace with dynamic value
    */
-  var txtSix: String? = MyApp.getInstance().resources.getString(R.string.lbl2)
-  ,
+  var txtSixResourceId: String? = MyApp.getInstance().resources.getString(R.string.lbl),
   /**
    * TODO Replace with dynamic value
    */
-  var txtNumbersold: String? = MyApp.getInstance().resources.getString(R.string.lbl_number_sold)
-  ,
+  val txtNumbersoldResourceId: Int ,
   /**
    * TODO Replace with dynamic value
    */
-  var txtSeven: String? = MyApp.getInstance().resources.getString(R.string.lbl5)
-
+  var txtSevenResourceId: Int = R.string.lbl5
 )
+
+

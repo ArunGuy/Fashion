@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
-    <data>
-        <variable name="resultRowModel" type="com.arunwichsapplication.app.modules.result.data.model.ResultRowModel"/>
-    </data>
-    <LinearLayout android:gravity="start"
-        android:id="@+id/linearColumnframe2443"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:orientation="vertical" style="@style/groupStylewhite_A700">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-        <View
-            android:id="@+id/viewFrame2443"
+    <data>
+        <variable
+            name="resultRowModel"
+            type="com.arunwichsapplication.app.modules.result.data.model.ResultRowModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/linearColumnframe2443"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:id="@+id/imageViewFrame244"
             android:layout_width="191dp"
-            android:layout_height="@dimen/_165pxh"
-            android:background="@drawable/dress" />
+            android:layout_height="@dimen/_191pxh"
+            android:background="@{resultRowModel.txtNumbersoldResourceId}" />
+
 
         <LinearLayout
             android:id="@+id/linearColumnfive"
-            style="@style/groupStylewhite_A700"
             android:layout_width="191dp"
             android:layout_height="wrap_content"
             android:gravity="start"
@@ -33,8 +40,7 @@
                 android:layout_marginEnd="@dimen/_10pxh"
                 android:ellipsize="end"
                 android:singleLine="true"
-                android:text="@{resultRowModel.txtFive}"
-                tools:ignore="TextSizeCheck"
+                android:text="@{resultRowModel.txtFiveResourceId}"
                 tools:text="@string/lbl" />
 
             <TextView
@@ -47,9 +53,8 @@
                 android:layout_marginEnd="@dimen/_10pxh"
                 android:ellipsize="end"
                 android:singleLine="true"
-                android:text="@{resultRowModel.txtSix}"
+                android:text="@{resultRowModel.txtSixResourceId}"
                 android:textColor="#1976D2"
-                tools:ignore="TextSizeCheck"
                 tools:text="@string/lbl2" />
 
             <LinearLayout
