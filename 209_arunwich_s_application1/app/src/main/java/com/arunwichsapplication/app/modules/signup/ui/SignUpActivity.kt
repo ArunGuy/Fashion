@@ -18,8 +18,8 @@ import kotlin.String
 import kotlin.Unit
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.viewModels
 import com.arunwichsapplication.app.modules.DatabaseHelper
+import com.arunwichsapplication.app.modules.account.ui.AccountActivity
 import com.arunwichsapplication.app.modules.login.ui.LogInActivity
 
 class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sign_up) {
@@ -43,11 +43,29 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
       val password = binding.txtPassword.text.toString().trim()
       val phone = binding.txtPhone.text.toString().trim()
 
+      val emailPattern = Regex("^[a-zA-Z0-9._%+-]+@(gmail|hotmail|yahoo|kmitl)\\.(com|co\\.th|ac\\.th)$")
+      val passwordPattern = Regex("^.{6,}$")
+      val phonePattern = Regex("^\\d{10}$")
+
       if (email.isNotEmpty() && password.isNotEmpty() && phone.isNotEmpty()) {
+        if (!emailPattern.matches(email)) {
+          Toast.makeText(this, "Invalid email format!", Toast.LENGTH_SHORT).show()
+          return@setOnClickListener
+        }
+
+        if (!passwordPattern.matches(password)) {
+          Toast.makeText(this, "Password must be at least 6 characters long!", Toast.LENGTH_SHORT).show()
+          return@setOnClickListener
+        }
+
+        if (!phonePattern.matches(phone)) {
+          Toast.makeText(this, "Invalid phone number format!", Toast.LENGTH_SHORT).show()
+          return@setOnClickListener
+        }
+
         val isInserted = databaseHelper.addUser(email, password, phone)
         if (isInserted) {
           Toast.makeText(this, "User added successfully!", Toast.LENGTH_SHORT).show()
-          // ทำต่อไปเช่นเปลี่ยนหน้าหรือทำอย่างอื่นตามที่ต้องการ
           val intent = Intent(this, LogInActivity::class.java)
           startActivity(intent)
         } else {
@@ -57,6 +75,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
         Toast.makeText(this, "Please fill in all fields!", Toast.LENGTH_SHORT).show()
       }
     }
+
 
     binding.txtLogin.setOnClickListener {
       // Navigate to SignUpActivity
@@ -85,9 +104,9 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
     }
 
     override fun setUpClicks(): Unit {
-      binding.linearGoogle.setOnClickListener {
-        googleLogin.login()
-      }
+
+
+
       binding.linearGoogle1.setOnClickListener {
         LoginManager.getInstance().logInWithReadPermissions(this, listOf("public_profile"))
         facebookLogin.login(callbackManager,object : FacebookCallback<LoginResult> {

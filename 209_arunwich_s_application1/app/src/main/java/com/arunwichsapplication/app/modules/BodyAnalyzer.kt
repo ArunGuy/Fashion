@@ -58,11 +58,11 @@ class BodyAnalyzer {
     }
 
     fun calculateBodyTypeAndClothingFit(person: Map<String, Double>, clothing: Map<String, Double>, model: Int?): String {
-        val frontLength = person["front_length"]
         val bustSize = person["bust_size"]
         val shoulderWidth = person["shoulder_width"]
-        val waistSize = person["waist_size"]
         val armLength = person["arm_length"]
+        val frontLength = person["front_length"]
+        val waistSize = person["waist_size"]
         val hipSize = person["hip_size"]
 
         if (armLength == null && shoulderWidth == null && frontLength == null) {

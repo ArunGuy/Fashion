@@ -56,6 +56,19 @@
                 android:text="@{resultRowModel.txtSixResourceId}"
                 android:textColor="#1976D2"
                 tools:text="@string/lbl2" />
+            <TextView
+                android:id="@+id/txtseven"
+                style="@style/txtIntermedium13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10pxh"
+                android:layout_marginTop="@dimen/_8pxv"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@{resultRowModel.txtSevenResourceId}"
+                tools:text="@string/lbl" />
+
 
             <LinearLayout
                 android:id="@+id/linearRowvector"

@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import com.arunwichsapplication.app.R
 import com.arunwichsapplication.app.appcomponents.base.BaseActivity
 import com.arunwichsapplication.app.databinding.ActivitySplashScreenBinding
+import com.arunwichsapplication.app.modules.DatabaseHelper
 import com.arunwichsapplication.app.modules.login.ui.LogInActivity
 import com.arunwichsapplication.app.modules.splashscreen.`data`.viewmodel.SplashScreenVM
 import kotlin.String
@@ -14,6 +15,7 @@ import kotlin.Unit
 class SplashScreenActivity :
     BaseActivity<ActivitySplashScreenBinding>(R.layout.activity_splash_screen) {
   private val viewModel: SplashScreenVM by viewModels<SplashScreenVM>()
+  private lateinit var databaseHelper: DatabaseHelper
 
   override fun onInitialized(): Unit {
     viewModel.navArguments = intent.extras?.getBundle("bundle")

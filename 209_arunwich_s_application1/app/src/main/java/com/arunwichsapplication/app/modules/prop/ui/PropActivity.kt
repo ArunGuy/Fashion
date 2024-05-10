@@ -1,5 +1,7 @@
 package com.arunwichsapplication.app.modules.prop.ui
 
+
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -15,20 +17,36 @@ import com.arunwichsapplication.app.modules.prop.data.viewmodel.PropVM
 import com.arunwichsapplication.app.modules.account.ui.AccountActivity
 import com.arunwichsapplication.app.modules.DatabaseHelper
 import com.arunwichsapplication.app.modules.login.ui.LogInActivity
+import com.arunwichsapplication.app.modules.result.ui.ResultActivity
+
 
 class PropActivity : BaseActivity<ActivityPropBinding>(R.layout.activity_prop) {
   private val viewModel: PropVM by viewModels()
   private lateinit var databaseHelper: DatabaseHelper
+  private var isEmailProcessed = false
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     binding.propVM = viewModel
     databaseHelper = DatabaseHelper(this)
 
-    // Set up button click listener
+
+
+
+
     binding.button5.setOnClickListener {
       processData()
     }
+  }
+
+
+
+
+
+  // ตรวจสอบว่า processEmail() ได้ทำงานแล้วหรือไม่
+  private fun checkEmailProcessed(): Boolean {
+    val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+    return sharedPreferences.getBoolean("emailProcessed", false)
   }
 
   private fun processData() {
@@ -46,6 +64,8 @@ class PropActivity : BaseActivity<ActivityPropBinding>(R.layout.activity_prop) {
       Toast.makeText(this, "กรุณากรอกข้อมูลให้ครบทุกช่อง", Toast.LENGTH_SHORT).show()
     }
   }
+
+
 
   private fun sendDataToAnotherDestination(
     waistline: Double,
@@ -65,14 +85,18 @@ class PropActivity : BaseActivity<ActivityPropBinding>(R.layout.activity_prop) {
       bodyType = "" // Body type will be calculated by BodyTypeCalculator
     )
 
-
+    val email = databaseHelper.getUserEmail()
     val bodyTypeCalculator = BodyTypeCalculator()
     val bodyType = bodyTypeCalculator.calculateBodyType(person)
     //Toast.makeText(this, "ประเภทร่างกาย Body Type : $bodyType", Toast.LENGTH_SHORT).show()
-    if (databaseHelper.addUserProfileData(waistline, chest, hipInput, height, weight)) {
+    if (databaseHelper.addUserProfileData(email ,waistline, chest, hipInput, height, weight)) {
 
-      Toast.makeText(this, "Data saved successfully", Toast.LENGTH_SHORT).show()
       val intent = Intent(this, AccountActivity::class.java)
+      intent.putExtra("waistline", waistline)
+      intent.putExtra("chest", chest)
+      intent.putExtra("hipInput", hipInput)
+      intent.putExtra("height", height)
+      intent.putExtra("weight", weight)
       startActivity(intent)
     } else {
       // หากเกิดปัญหาในการเพิ่มข้อมูล UserProfile ในฐานข้อมูล

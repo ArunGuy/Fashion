@@ -1,7 +1,6 @@
 package com.arunwichsapplication.app.appcomponents.googleauth
 
 import android.app.Activity
-import android.app.Activity.RESULT_OK
 import android.content.Intent
 import androidx.activity.ComponentActivity
 import androidx.activity.result.ActivityResult
@@ -33,7 +32,7 @@ class GoogleHelper(
      *  How to use: on the button click call this method
      *  [Class_Object].login()
      * */
-    fun login() {
+    fun login(param: (Any) -> Unit) {
         configureGoogleSignIn()
         val account = GoogleSignIn.getLastSignedInAccount(activity)
         if (account != null) {

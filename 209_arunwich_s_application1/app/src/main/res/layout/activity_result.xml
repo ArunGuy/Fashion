@@ -60,17 +60,6 @@
                     app:theme="@style/searchViewFrame2432" />
 
                 <!-- Search Icon -->
-                <ImageView
-                    android:id="@+id/imageSearchOne"
-                    android:layout_width="wrap_content"
-                    android:layout_height="34dp"
-                    android:layout_marginStart="@dimen/_15pxh"
-                    android:layout_marginTop="@dimen/_9pxv"
-                    android:layout_marginBottom="@dimen/_9pxv"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/img_search_indigo_300_20x20"
-                    tools:src="@drawable/img_search_indigo_300_20x20"
-                    tools:ignore="ContentDescription" />
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
 
@@ -83,58 +72,7 @@
             android:layout_marginEnd="@dimen/_14pxh"
             android:layout_marginTop="@dimen/_12pxv"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/txtFrame2433"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.38"
-                android:paddingStart="@dimen/_9pxh"
-                android:paddingEnd="@dimen/_9pxh"
-                android:paddingTop="@dimen/_10pxv"
-                android:paddingBottom="@dimen/_9pxv"
-                android:singleLine="true"
-                android:ellipsize="end"
-                android:lineSpacingExtra="@dimen/_4pxh"
-                android:text="@{resultVM.resultModel.txtFrame2433}"
-                style="@style/txtSolid"
-                tools:text="@string/lbl_relevance" />
-
-            <TextView
-                android:id="@+id/txtFrame2434"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.26"
-                android:layout_marginStart="@dimen/_10pxh"
-                android:paddingStart="@dimen/_9pxh"
-                android:paddingEnd="@dimen/_9pxh"
-                android:paddingTop="@dimen/_10pxv"
-                android:paddingBottom="@dimen/_9pxv"
-                android:singleLine="true"
-                android:ellipsize="end"
-                android:lineSpacingExtra="@dimen/_4pxh"
-                android:text="@{resultVM.resultModel.txtFrame2434}"
-                style="@style/txtSolid"
-                tools:text="@string/lbl_latest" />
-
-            <TextView
-                android:id="@+id/txtFrame2435"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.36"
-                android:layout_marginStart="@dimen/_10pxh"
-                android:paddingStart="@dimen/_9pxh"
-                android:paddingEnd="@dimen/_9pxh"
-                android:paddingTop="@dimen/_11pxv"
-                android:paddingBottom="@dimen/_8pxv"
-                android:singleLine="true"
-                android:ellipsize="end"
-                android:lineSpacingExtra="@dimen/_4pxh"
-                android:text="@{resultVM.resultModel.txtFrame2435}"
-                style="@style/txtSolid"
-                tools:text="@string/lbl_top_sales" />
-        </LinearLayout>
+            android:orientation="horizontal"/>
 
         <!-- Spinner -->
         <LinearLayout
@@ -145,93 +83,7 @@
             android:layout_marginEnd="@dimen/_14pxh"
             android:layout_marginTop="@dimen/_10pxv"
             android:layout_marginBottom="@dimen/_10pxv"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:id="@+id/linearRowcheckmark"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.2"
-                android:orientation="horizontal"
-                style="@style/groupStylegray_200cornerRadius">
-
-                <ImageView
-                    android:id="@+id/imageCheckmark"
-                    android:layout_width="@dimen/_14pxh"
-                    android:layout_height="@dimen/_13pxh"
-                    android:layout_marginStart="@dimen/_10pxh"
-                    android:layout_marginTop="@dimen/_11pxv"
-                    android:layout_marginBottom="@dimen/_10pxv"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/img_checkmark_red_a700"
-                    tools:src="@drawable/img_checkmark_red_a700"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:id="@+id/txtMall"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.7"
-                    android:layout_marginStart="@dimen/_4pxh"
-                    android:layout_marginEnd="@dimen/_5pxh"
-                    android:layout_marginTop="@dimen/_7pxv"
-                    android:layout_marginBottom="@dimen/_6pxv"
-                    android:singleLine="true"
-                    android:ellipsize="end"
-                    android:lineSpacingExtra="@dimen/_4pxh"
-                    android:text="@{resultVM.resultModel.txtMall}"
-                    style="@style/txtIntersemibold16_3"
-                    tools:text="@string/lbl_mall" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearRowvector"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.43"
-                android:orientation="horizontal"
-                style="@style/groupStylegray_201cornerRadius">
-
-                <ImageView
-                    android:id="@+id/imageVector"
-                    android:layout_width="@dimen/_24pxh"
-                    android:layout_height="@dimen/_13pxh"
-                    android:layout_marginStart="@dimen/_5pxh"
-                    android:layout_marginTop="@dimen/_10pxv"
-                    android:layout_marginBottom="@dimen/_10pxv"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/img_vector_teal_400"
-                    tools:src="@drawable/img_vector_teal_400"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:id="@+id/txtLanguage"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.82"
-                    android:layout_marginStart="@dimen/_3pxh"
-                    android:layout_marginEnd="@dimen/_5pxh"
-                    android:layout_marginTop="@dimen/_8pxv"
-                    android:layout_marginBottom="@dimen/_5pxv"
-                    android:singleLine="true"
-                    android:ellipsize="end"
-                    android:lineSpacingExtra="@dimen/_4pxh"
-                    android:text="@{resultVM.resultModel.txtLanguage}"
-                    style="@style/txtIntersemibold16_3"
-                    tools:text="@string/lbl_free_shipping" />
-            </LinearLayout>
-
-            <!-- Spinner -->
-            <Spinner
-                android:id="@+id/spinnerFrame2441"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.38"
-                android:layout_marginStart="@dimen/_12pxh"
-                android:background="@drawable/layer_list_bg_gray_201_radius_10"
-                tools:listitem="@layout/spinner_item"
-                tools:ignore="TouchTargetSizeCheck" />
-        </LinearLayout>
+            android:orientation="horizontal"/>
 
         <!-- RecyclerView -->
         <LinearLayout

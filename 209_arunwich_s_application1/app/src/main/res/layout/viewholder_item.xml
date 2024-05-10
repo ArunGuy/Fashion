@@ -7,6 +7,8 @@
     app:cardCornerRadius="15dp"
     android:elevation="2dp">
 
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -55,8 +57,8 @@
 
             <ImageView
                 android:id="@+id/star"
-                android:layout_width="14dp"
-                android:layout_height="14dp"
+                android:layout_width="18dp"
+                android:layout_height="16dp"
                 android:layout_marginTop="2dp"
                 android:background="@drawable/star_icon"
                 app:layout_constraintStart_toStartOf="@+id/price_txt"

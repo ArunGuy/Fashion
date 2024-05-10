@@ -20,7 +20,7 @@ data class ResultRowModel(
   /**
    * TODO Replace with dynamic value
    */
-  var txtSevenResourceId: Int = R.string.lbl5
+  var txtSevenResourceId: String? = MyApp.getInstance().resources.getString(R.string.lbl),
 )
 
 

@@ -3,6 +3,8 @@ package com.arunwichsapplication.app.modules.login.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.arunwichsapplication.app.R
@@ -11,6 +13,7 @@ import com.arunwichsapplication.app.appcomponents.facebookauth.FacebookHelper
 import com.arunwichsapplication.app.appcomponents.googleauth.GoogleHelper
 import com.arunwichsapplication.app.databinding.ActivityLogInBinding
 import com.arunwichsapplication.app.modules.DatabaseHelper
+import com.arunwichsapplication.app.modules.account.ui.AccountActivity
 import com.arunwichsapplication.app.modules.login.data.viewmodel.LogInVM
 import com.arunwichsapplication.app.modules.prop.ui.PropActivity
 import com.arunwichsapplication.app.modules.signup.ui.SignUpActivity
@@ -19,9 +22,9 @@ import com.facebook.FacebookCallback
 import com.facebook.FacebookException
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import kotlin.Int
 import kotlin.String
-import kotlin.Unit
 
 class LogInActivity : BaseActivity<ActivityLogInBinding>(R.layout.activity_log_in) {
   private val viewModel: LogInVM by viewModels<LogInVM>()
@@ -39,32 +42,30 @@ class LogInActivity : BaseActivity<ActivityLogInBinding>(R.layout.activity_log_i
     super.onCreate(savedInstanceState)
     binding.logInVM = viewModel
     googleLogin = GoogleHelper(this, { accountInfo -> }, { error -> })
-
-    // Initialize DatabaseHelper and check database connection
     databaseHelper = DatabaseHelper(this)
-    if (databaseHelper.isDatabaseConnected()) {
-      Toast.makeText(this, "Database connected", Toast.LENGTH_SHORT).show()
-    } else {
-      Toast.makeText(this, "Database not connected", Toast.LENGTH_SHORT).show()
+
+    val status10 = databaseHelper.getStatusForLoggedInUser()
+    val intent = Intent(this, AccountActivity::class.java)
+    if (status10 == 1) {
+      startActivity(intent)
+      finish()
     }
 
-    // Your remaining code...
+
   }
+
 
 
   override fun onInitialized() {
     viewModel.navArguments = intent.extras?.getBundle("bundle")
-    binding.logInVM = viewModel
-    googleLogin = GoogleHelper(this,
-      { accountInfo ->
-      }, { error ->
-      })
+
+
+
+
   }
 
   override fun setUpClicks() {
-    binding.linearGoogle.setOnClickListener {
-      googleLogin.login()
-    }
+
 
     binding.linearGoogle1.setOnClickListener {
       LoginManager.getInstance().logInWithReadPermissions(this, listOf("public_profile"))
@@ -84,9 +85,15 @@ class LogInActivity : BaseActivity<ActivityLogInBinding>(R.layout.activity_log_i
         if (isDatabaseConnected) {
           val isUserExists = databaseHelper.checkUser(email, password)
           if (isUserExists) {
-            // User exists, navigate to ProporActivity or perform other actions
-            val intent = Intent(this, PropActivity::class.java)
-            startActivity(intent)
+            // Update user status to 1 before checking user email
+            val loggedIn = databaseHelper.updateUserStatus(email, 1)
+            if (loggedIn) {
+              // User status updated, proceed to process email
+              processEmail()
+            } else {
+              // Failed to update user status
+              Toast.makeText(this, "Failed to update user status", Toast.LENGTH_SHORT).show()
+            }
           } else {
             // User doesn't exist or credentials are incorrect
             Toast.makeText(this, "Invalid email or password", Toast.LENGTH_SHORT).show()
@@ -104,6 +111,7 @@ class LogInActivity : BaseActivity<ActivityLogInBinding>(R.layout.activity_log_i
       // Navigate to SignUpActivity
       val intent = Intent(this, SignUpActivity::class.java)
       startActivity(intent)
+      finish()
     }
   }
 
@@ -117,15 +125,48 @@ class LogInActivity : BaseActivity<ActivityLogInBinding>(R.layout.activity_log_i
     }
   }
 
-  // Move this function to your DatabaseHelper class
-  // Move this function to your DatabaseHelper class
-  fun DatabaseHelper.checkUser(email: String, password: String): Boolean {
-    val db = readableDatabase
-    val query = "SELECT * FROM ${DatabaseHelper.getTableName()} WHERE ${DatabaseHelper.getColumnEmail()} = ? AND ${DatabaseHelper.getColumnPassword()} = ?"
-    val cursor = db.rawQuery(query, arrayOf(email, password))
-    val count = cursor.count
-    cursor.close()
-    return count > 0
+  private fun processEmail(){
+    val email = databaseHelper.getUserEmail()
+    if (email != null) {
+      // ค่า email ไม่เท่ากับ null แสดงว่ามีผู้ใช้อยู่จริง
+      // ดังนั้นให้กำหนดค่า email ให้กับ loggedInUserEmail
+      databaseHelper.setLoggedInUserEmail(email)
+      // แสดง Toast ต้อนรับผู้ใช้ที่ล็อกอินเข้าสู่ระบบ
+      Toast.makeText(this, "Welcome2 : $email", Toast.LENGTH_SHORT).show()
+      // เรียกใช้ Activity ที่ต้องการเปิดหลังจากล็อกอินเสร็จสมบูรณ์
+      val intent = Intent(this, AccountActivity::class.java)
+      startActivity(intent)
+      finish()
+    } else {
+      // ถ้า email เป็น null แสดงว่าไม่มีผู้ใช้อยู่
+      // ในกรณีนี้เราไม่ควรกำหนดค่า email ให้กับ loggedInUserEmail
+      // สามารถใช้ฟังก์ชันนี้เพื่อลบค่า email ที่เก็บไว้เมื่อไม่มีผู้ใช้อยู่
+      // databaseHelper.setLoggedInUserEmail(null)
+      // แสดง Toast ต้อนรับผู้ใช้ใหม่ที่ยังไม่ได้ล็อกอิน
+      Toast.makeText(this, "ไม่ผู้ Email ในฐายข้อมูล ", Toast.LENGTH_SHORT).show()
+      // เรียกใช้ Activity ที่ต้องการเปิดสำหรับผู้ใช้ใหม่
+
+    }
   }
+
+  private fun delayedStartAccountActivity() {
+    Handler(Looper.getMainLooper()).postDelayed({
+      val email1 = databaseHelper.getUserEmail()
+      val status = databaseHelper.getUserStatus(email1)
+      if (status == 1) {
+        val intent = Intent(this, AccountActivity::class.java)
+        startActivity(intent)
+        finish()
+
+      }
+    }, 5000) // รอ 5 วินาที ก่อนที่โค้ดในบล็อกนี้จะถูกเรียก
+  }
+
+
+
+
+
+
+
 
 }
