@@ -56,7 +56,7 @@
                     android:queryHint="@string/lbl_search"
                     app:iconifiedByDefault="false"
                     app:queryBackground="@android:color/transparent"
-                    app:searchIcon="@drawable/img_search_gray_400"
+
                     app:theme="@style/searchViewFrame2432" />
 
                 <!-- Search Icon -->

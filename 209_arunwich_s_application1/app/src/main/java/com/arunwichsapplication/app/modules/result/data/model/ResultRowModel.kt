@@ -9,6 +9,9 @@ data class ResultRowModel(
    * TODO Replace with dynamic value
    */
   var txtFiveResourceId: String? = MyApp.getInstance().resources.getString(R.string.lbl),
+  var txtoneResourceId: String? = MyApp.getInstance().resources.getString(R.string.lbl),
+  var txttwoResourceId: String? = MyApp.getInstance().resources.getString(R.string.lbl),
+
   /**
    * TODO Replace with dynamic value
    */
@@ -21,6 +24,7 @@ data class ResultRowModel(
    * TODO Replace with dynamic value
    */
   var txtSevenResourceId: String? = MyApp.getInstance().resources.getString(R.string.lbl),
+
 )
 
 

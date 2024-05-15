@@ -88,7 +88,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
-        <TextView
+        <Button
             android:id="@+id/account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -101,7 +101,9 @@
             android:paddingBottom="11dp"
             android:text="@string/msg_account"
             android:textColor="#6D6E6E"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:gravity="start" />
+
 
         <ImageView
             android:id="@+id/right1"
@@ -128,7 +130,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
-        <TextView
+        <Button
             android:id="@+id/address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -141,7 +143,8 @@
             android:paddingBottom="11dp"
             android:text="@string/my_addresses"
             android:textColor="#6D6E6E"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:gravity="start"/>
 
         <ImageView
             android:id="@+id/right2"
@@ -168,7 +171,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
-        <TextView
+        <Button
             android:id="@+id/bank"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -181,7 +184,8 @@
             android:paddingBottom="11dp"
             android:text="@string/msg_bank_accounts"
             android:textColor="#6D6E6E"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:gravity="start"/>
 
         <ImageView
             android:id="@+id/right3"

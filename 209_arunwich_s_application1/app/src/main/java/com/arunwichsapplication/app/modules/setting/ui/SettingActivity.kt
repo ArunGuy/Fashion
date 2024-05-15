@@ -6,11 +6,8 @@ import com.arunwichsapplication.app.R
 import com.arunwichsapplication.app.appcomponents.base.BaseActivity
 import com.arunwichsapplication.app.databinding.ActivitySettingBinding
 import com.arunwichsapplication.app.modules.DatabaseHelper
-import com.arunwichsapplication.app.modules.account.ui.AccountActivity
 import com.arunwichsapplication.app.modules.login.ui.LogInActivity
-import com.arunwichsapplication.app.modules.setting.`data`.viewmodel.SettingVM
-import kotlin.String
-import kotlin.Unit
+import com.arunwichsapplication.app.modules.setting.data.viewmodel.SettingVM
 
 
 class SettingActivity : BaseActivity<ActivitySettingBinding>(R.layout.activity_setting) {
@@ -27,6 +24,19 @@ class SettingActivity : BaseActivity<ActivitySettingBinding>(R.layout.activity_s
       finish() // ปิด Activity ปัจจุบันเมื่อคลิกที่ปุ่ม Back
     }
 
+    binding.account.setOnClickListener {
+
+    }
+
+    // กำหนดคลิกสำหรับปุ่ม "address"
+    binding.address.setOnClickListener {
+      
+    }
+
+    // กำหนดคลิกสำหรับปุ่ม "bank"
+    binding.bank.setOnClickListener {
+
+    }
     binding.logOut.setOnClickListener {
       databaseHelper = DatabaseHelper(this)
       val email = databaseHelper.getUserLoggedInEmail()

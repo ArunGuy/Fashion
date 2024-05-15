@@ -42,6 +42,32 @@
                 android:singleLine="true"
                 android:text="@{resultRowModel.txtFiveResourceId}"
                 tools:text="@string/lbl" />
+            <TextView
+                android:id="@+id/txt8"
+                style="@style/txtIntermedium13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10pxh"
+                android:layout_marginTop="@dimen/_8pxv"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@{resultRowModel.txtoneResourceId}"
+                tools:text="@string/lbl" />
+
+            <TextView
+                android:id="@+id/txt9"
+                style="@style/txtIntermedium13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10pxh"
+                android:layout_marginTop="@dimen/_8pxv"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@{resultRowModel.txttwoResourceId}"
+                tools:text="@string/lbl" />
+
 
             <TextView
                 android:id="@+id/txtSix"

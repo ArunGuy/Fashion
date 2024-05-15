@@ -1,24 +1,27 @@
 package com.arunwichsapplication.app.modules.prop.ui
 
 
+import Notification
+import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat
 import com.arunwichsapplication.app.R
 import com.arunwichsapplication.app.appcomponents.base.BaseActivity
 import com.arunwichsapplication.app.databinding.ActivityPropBinding
 import com.arunwichsapplication.app.modules.BodyTypeCalculator
+import com.arunwichsapplication.app.modules.DatabaseHelper
 import com.arunwichsapplication.app.modules.Person
+import com.arunwichsapplication.app.modules.account.ui.AccountActivity
 import com.arunwichsapplication.app.modules.prop.data.model.DetailRowModel
 import com.arunwichsapplication.app.modules.prop.data.viewmodel.PropVM
-import com.arunwichsapplication.app.modules.account.ui.AccountActivity
-import com.arunwichsapplication.app.modules.DatabaseHelper
-import com.arunwichsapplication.app.modules.login.ui.LogInActivity
-import com.arunwichsapplication.app.modules.result.ui.ResultActivity
-
 
 class PropActivity : BaseActivity<ActivityPropBinding>(R.layout.activity_prop) {
   private val viewModel: PropVM by viewModels()
@@ -30,13 +33,18 @@ class PropActivity : BaseActivity<ActivityPropBinding>(R.layout.activity_prop) {
     binding.propVM = viewModel
     databaseHelper = DatabaseHelper(this)
 
+    val notification = Notification(this)
+    notification.createNotificationChannel()
 
 
 
 
     binding.button5.setOnClickListener {
+
       processData()
     }
+
+
   }
 
 
@@ -97,6 +105,7 @@ class PropActivity : BaseActivity<ActivityPropBinding>(R.layout.activity_prop) {
       intent.putExtra("hipInput", hipInput)
       intent.putExtra("height", height)
       intent.putExtra("weight", weight)
+      showNotification()
       startActivity(intent)
     } else {
       // หากเกิดปัญหาในการเพิ่มข้อมูล UserProfile ในฐานข้อมูล
@@ -131,4 +140,30 @@ class PropActivity : BaseActivity<ActivityPropBinding>(R.layout.activity_prop) {
   ) {
     // Handle click on RecyclerView item
   }
+
+
+  private fun showNotification() {
+    val CHANNEL_ID = "MyNotificationChannel"
+    val NOTIFICATION_ID = 123
+    val builder = NotificationCompat.Builder(this, CHANNEL_ID)
+      .setSmallIcon(R.drawable.notifi)
+      .setContentTitle("Fashion Scan")
+      .setContentText("บันทึกข้อมูลสำเร็จ")
+      .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+    // Show the notification
+    with(NotificationManagerCompat.from(this@PropActivity)) {
+      if (ContextCompat.checkSelfPermission(
+          this@PropActivity,
+          Manifest.permission.POST_NOTIFICATIONS
+        ) != PackageManager.PERMISSION_GRANTED
+      ) {
+        // TODO: Handle the case where the permission is not granted
+        return
+      }
+      notify(NOTIFICATION_ID, builder.build())
+    }
+  }
+
+
 }

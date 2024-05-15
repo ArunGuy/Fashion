@@ -52,7 +52,7 @@
                                 android:layout_marginEnd="@dimen/_10pxh"
                                 android:layout_width="match_parent"
                                 android:singleLine="true"
-                                android:text="@{accountVM.accountModel.txtNAME}"
+                                android:text="@{accountVM.userEmail}"
                                 style="@style/txtInterbold24" tools:text="@string/lbl_name"/>
                             <LinearLayout android:gravity="start"
                                 android:id="@+id/linearAccountsetting"
