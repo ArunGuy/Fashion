@@ -101,4 +101,7 @@ our Term and Conditions</string>
   <string name="proportions">Proportions</string>
   <string name="my_addresses">My Addresses</string>
   <string name="account_setting">Account Setting</string>
+    <string name="lbl_notification_message" />
+  <string name="lbl_notification_time" />
+  <string name="lbl_notification_title" />
 </resources>

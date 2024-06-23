@@ -1,26 +1,22 @@
 package com.arunwichsapplication.app.modules.signup.ui
 
 import android.content.Intent
+import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import com.arunwichsapplication.app.R
 import com.arunwichsapplication.app.appcomponents.base.BaseActivity
 import com.arunwichsapplication.app.appcomponents.facebookauth.FacebookHelper
 import com.arunwichsapplication.app.appcomponents.googleauth.GoogleHelper
 import com.arunwichsapplication.app.databinding.ActivitySignUpBinding
-import com.arunwichsapplication.app.modules.signup.`data`.viewmodel.SignUpVM
+import com.arunwichsapplication.app.modules.DatabaseHelper
+import com.arunwichsapplication.app.modules.login.ui.LogInActivity
+import com.arunwichsapplication.app.modules.signup.data.viewmodel.SignUpVM
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
-import kotlin.Int
-import kotlin.String
-import kotlin.Unit
-import android.os.Bundle
-import android.widget.Toast
-import com.arunwichsapplication.app.modules.DatabaseHelper
-import com.arunwichsapplication.app.modules.account.ui.AccountActivity
-import com.arunwichsapplication.app.modules.login.ui.LogInActivity
 
 class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sign_up) {
   private val viewModel: SignUpVM by viewModels<SignUpVM>()
@@ -72,7 +68,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
           Toast.makeText(this, "User already exists!", Toast.LENGTH_SHORT).show()
         }
       } else {
-        Toast.makeText(this, "Please fill in all fields!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "กรุณากรอกข้อมูลให้ครบ", Toast.LENGTH_SHORT).show()
       }
     }
 

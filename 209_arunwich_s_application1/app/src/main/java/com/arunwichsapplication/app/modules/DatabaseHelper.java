@@ -9,13 +9,17 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
+import com.arunwichsapplication.app.modules.notification.data.model.NotificationModel;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "Databasemain12.db";
+    private static final String DATABASE_NAME = "Databasemain20.db";
     private static final String TABLE_USER_PROFILE = "UserProfile";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_EMAIL = "email";
@@ -26,6 +30,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_WAIST = "waist";
     private static final String COLUMN_CHEST = "chest";
     private static final String COLUMN_HIP = "hip";
+    private static final String COLUMN_MESSAGE = "message";
+
+
+    private static final String COLUMN_TIMESTAMP = "timestamp";
+    private static final String COLUMN_TITLE = "title";
     private Context context;
     private String loggedInUserEmail;
 
@@ -46,15 +55,94 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_WAIST + " DOUBLE, " +
                 COLUMN_CHEST + " DOUBLE, " +
                 COLUMN_HIP + " DOUBLE, " +
-                COLUMN_STATUS + " INTEGER DEFAULT 0)"; // New column for status with default value 0
+                COLUMN_STATUS + " INTEGER DEFAULT 0, " +
+                COLUMN_TIMESTAMP + " DATETIME DEFAULT CURRENT_TIMESTAMP, " +
+                COLUMN_TITLE + " TEXT," +
+                COLUMN_MESSAGE + " TEXT)"; // Add column for timestamp and title
         db.execSQL(createUserTableQuery);
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER_PROFILE);
         onCreate(db);
     }
+
+    public boolean addTimestampAndTitle(String email, String title, String message) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COLUMN_EMAIL, email);
+        contentValues.put(COLUMN_TITLE, title);
+        contentValues.put(COLUMN_MESSAGE, message);
+        contentValues.put(COLUMN_TIMESTAMP, System.currentTimeMillis());
+
+        // Check if the user profile data already exists
+        String selection = COLUMN_EMAIL + " = ?";
+        String[] selectionArgs = { email };
+        Cursor cursor = db.query(
+                TABLE_USER_PROFILE,
+                null,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null
+        );
+
+        if (cursor != null && cursor.getCount() > 0) {
+            cursor.close();
+            // Update the user profile data
+            int rowsUpdated = db.update(TABLE_USER_PROFILE, contentValues, selection, selectionArgs);
+            return rowsUpdated > 0;
+        }
+
+        if (cursor != null) {
+            cursor.close();
+        }
+
+        // Insert the user profile data if it doesn't exist
+        long result = db.insert(TABLE_USER_PROFILE, null, contentValues);
+        return result != -1;
+    }
+
+
+
+
+
+    public List<Map<String, String>> getAllNotifications(String email) {
+        List<Map<String, String>> notifications = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+
+        // Define the selection criteria
+        String selection = COLUMN_EMAIL + "=?";
+        String[] selectionArgs = { email };
+
+        Cursor cursor = db.query(TABLE_USER_PROFILE, new String[]{COLUMN_TITLE, COLUMN_TIMESTAMP, COLUMN_MESSAGE}, selection, selectionArgs, null, null, null);
+
+        while (cursor.moveToNext()) {
+            String title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE));
+            String timestamp = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TIMESTAMP));
+            String message = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_MESSAGE));
+
+            Map<String, String> notification = new HashMap<>();
+            notification.put("title", title);
+            notification.put("timestamp", timestamp);
+            notification.put("message", message);
+
+            notifications.add(notification);
+        }
+
+        cursor.close();
+        db.close();
+        return notifications;
+    }
+
+
+
+
+
+
 
     public boolean updateUserStatus(String email, int status) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -189,7 +277,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 if (hip != 0.0) updatedData += "Hip: " + hip + ", ";
                 if (height != 0.0) updatedData += "Height: " + height + ", ";
                 if (weight != 0.0) updatedData += "Weight: " + weight + ", ";
-                Toast.makeText(context, updatedData.substring(0, updatedData.length() - 2), Toast.LENGTH_SHORT).show();
                 return true;
             } else {
                 Toast.makeText(context, "Failed to update data", Toast.LENGTH_SHORT).show();

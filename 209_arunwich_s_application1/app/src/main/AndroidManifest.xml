@@ -49,5 +49,7 @@
         <activity
             android:name="com.arunwichsapplication.app.modules.account.ui.AccountActivity" android:screenOrientation="portrait"
             />
+        <activity
+            android:name="com.arunwichsapplication.app.modules.notification.ui.NotificationActivity" android:screenOrientation="portrait"/>
     </application>
 </manifest>

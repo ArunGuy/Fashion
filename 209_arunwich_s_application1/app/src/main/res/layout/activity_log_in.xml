@@ -41,6 +41,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txtFrameThree"
+                    style="@style/txtIntersemibold16"
                     android:layout_width="287dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_35pxh"
@@ -49,7 +50,12 @@
                     android:ellipsize="end"
                     android:hint="@string/email"
                     android:minHeight="48dp"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    tools:ignore="TextSizeCheck,TouchTargetSizeCheck"
+                    tools:layout_conversion_absoluteHeight="40dp"
+                    tools:layout_conversion_absoluteWidth="282dp"
+                    tools:layout_editor_absoluteX="60dp"
+                    tools:layout_editor_absoluteY="300dp" />
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txtPassword"

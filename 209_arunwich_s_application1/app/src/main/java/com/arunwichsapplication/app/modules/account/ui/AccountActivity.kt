@@ -8,6 +8,7 @@ import com.arunwichsapplication.app.appcomponents.base.BaseActivity
 import com.arunwichsapplication.app.databinding.ActivityAccountBinding
 import com.arunwichsapplication.app.modules.DatabaseHelper
 import com.arunwichsapplication.app.modules.account.data.viewmodel.AccountVM
+import com.arunwichsapplication.app.modules.notification.ui.NotificationActivity
 import com.arunwichsapplication.app.modules.prop.ui.PropActivity
 import com.arunwichsapplication.app.modules.result.ui.ResultActivity
 import com.arunwichsapplication.app.modules.setting.ui.SettingActivity
@@ -61,6 +62,11 @@ class AccountActivity : BaseActivity<ActivityAccountBinding>(R.layout.activity_a
       intent.putExtra("hipInput", hipInput)
       intent.putExtra("height", height)
       intent.putExtra("weight", weight)
+      startActivity(intent)
+    }
+    binding.linearNoti.setOnClickListener {
+      // Navigate to OtherActivity
+      val intent = Intent(this, NotificationActivity::class.java)
       startActivity(intent)
     }
   }

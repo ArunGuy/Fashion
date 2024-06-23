@@ -22,6 +22,7 @@ import com.arunwichsapplication.app.modules.Person
 import com.arunwichsapplication.app.modules.account.ui.AccountActivity
 import com.arunwichsapplication.app.modules.prop.data.model.DetailRowModel
 import com.arunwichsapplication.app.modules.prop.data.viewmodel.PropVM
+import java.util.Date
 
 class PropActivity : BaseActivity<ActivityPropBinding>(R.layout.activity_prop) {
   private val viewModel: PropVM by viewModels()
@@ -67,10 +68,19 @@ class PropActivity : BaseActivity<ActivityPropBinding>(R.layout.activity_prop) {
 
     // Check if data is not null
     if (waistline != null && chest != null && hip != null && height != null && weight != null) {
-      sendDataToAnotherDestination(waistline, chest, hip, height, weight)
+      // Check if all values are within the valid range
+      if (isValidMeasurement(waistline) && isValidMeasurement(chest) && isValidMeasurement(hip) && isValidMeasurement(height) && isValidMeasurement(weight)) {
+        sendDataToAnotherDestination(waistline, chest, hip, height, weight)
+      } else {
+        Toast.makeText(this, "ค่าตัวเลขต้องไม่เกิน 3 หลักและต้องไม่ติดลบ", Toast.LENGTH_SHORT).show()
+      }
     } else {
       Toast.makeText(this, "กรุณากรอกข้อมูลให้ครบทุกช่อง", Toast.LENGTH_SHORT).show()
     }
+  }
+
+  private fun isValidMeasurement(value: Double): Boolean {
+    return value in 0.0..999.0
   }
 
 
@@ -105,11 +115,12 @@ class PropActivity : BaseActivity<ActivityPropBinding>(R.layout.activity_prop) {
       intent.putExtra("hipInput", hipInput)
       intent.putExtra("height", height)
       intent.putExtra("weight", weight)
+      Toast.makeText(this, "อัพเดทข้อมูลสำเร็จ", Toast.LENGTH_SHORT).show()
       showNotification()
       startActivity(intent)
     } else {
       // หากเกิดปัญหาในการเพิ่มข้อมูล UserProfile ในฐานข้อมูล
-      Toast.makeText(this, "Failed to add user profile data.", Toast.LENGTH_SHORT).show()
+      Toast.makeText(this, "ไม่สามารถอัพเดทข้อมูลได้.", Toast.LENGTH_SHORT).show()
     }
 
   }
@@ -145,10 +156,17 @@ class PropActivity : BaseActivity<ActivityPropBinding>(R.layout.activity_prop) {
   private fun showNotification() {
     val CHANNEL_ID = "MyNotificationChannel"
     val NOTIFICATION_ID = 123
+
+    val text = "บันทึกข้อมูลสำเร็จ"
+    val text1 = "อัพเดทข้อมูล Proportion"
+    val currentTime = System.currentTimeMillis()
+    val dateFormat = java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss", java.util.Locale.getDefault())
+    val formattedTime = dateFormat.format(Date(currentTime))
+    val fullText = "$text\nเวลาบันทึก: $formattedTime"
     val builder = NotificationCompat.Builder(this, CHANNEL_ID)
       .setSmallIcon(R.drawable.notifi)
       .setContentTitle("Fashion Scan")
-      .setContentText("บันทึกข้อมูลสำเร็จ")
+      .setContentText(fullText)
       .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
     // Show the notification
@@ -163,6 +181,11 @@ class PropActivity : BaseActivity<ActivityPropBinding>(R.layout.activity_prop) {
       }
       notify(NOTIFICATION_ID, builder.build())
     }
+
+    val email = databaseHelper.getUserEmail()
+    val title = "Fashion Scan"
+    val timestampAdded = databaseHelper.addTimestampAndTitle(email,title ,text1)
+    timestampAdded
   }
 
 

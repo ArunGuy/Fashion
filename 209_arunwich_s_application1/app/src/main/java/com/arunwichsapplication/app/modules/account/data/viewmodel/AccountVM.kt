@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.arunwichsapplication.app.modules.account.`data`.model.AccountModel
+import com.arunwichsapplication.app.modules.account.data.model.AccountModel
 import org.koin.core.KoinComponent
 
 class AccountVM : ViewModel(), KoinComponent {

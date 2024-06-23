@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="settingVM"
-            type="com.arunwichsapplication.app.modules.setting.data.viewmodel.SettingVM" />
+            name="notificationVM"
+            type="com.arunwichsapplication.app.modules.notification.data.viewmodel.NotificationVM" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,52 +21,26 @@
             android:background="@drawable/head_white"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent" />
 
-            <ImageView
-                android:id="@+id/imageView11"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="55dp"
-                android:scaleType="centerCrop"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/arrow_left"
-                android:contentDescription="@null"/>
+        <!-- Add RecyclerView here -->
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="55dp"
-                android:fontFamily="@font/intersemibold"
-                android:text="@string/account_setting"
-                android:textAlignment="center"
-                android:textColor="#22284B"
-                android:textSize="20sp"
-                app:layout_constraintStart_toEndOf="@+id/imageView11"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <Button
-            android:id="@+id/log_out"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="35dp"
-            android:background="@drawable/blue_button"
-            android:fontFamily="@font/intersemibold"
-            android:text="@string/lbl_log_out"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="559dp"
+            android:layout_marginHorizontal="@dimen/_20pxh"
+            android:layout_marginVertical="@dimen/_20pxv"
+            android:background="#00FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/constraintLayout"
+            app:layout_constraintBottom_toTopOf="@id/linearLayout3"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout1" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center_horizontal"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="1"
+            tools:itemCount="8"
+            tools:listitem="@layout/item_notification" />
 
         <LinearLayout
             android:id="@+id/linearLayout3"
@@ -76,25 +50,7 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
-
-            <Button
-                android:id="@+id/account"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/white_settingtop"
-                android:fontFamily="@font/intermedium"
-                android:paddingStart="25dp"
-                android:paddingEnd="25dp"
-                android:paddingTop="11dp"
-                android:paddingBottom="11dp"
-                android:text="@string/msg_account"
-                android:textColor="#6D6E6E"
-                android:textSize="15sp"
-                android:gravity="start" />
-
-        </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@id/recyclerView" />
 
         <LinearLayout
             android:id="@+id/linearLayout2"
@@ -103,52 +59,18 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-            <Button
-                android:id="@+id/address"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/white_settingtop"
-                android:fontFamily="@font/intermedium"
-                android:paddingStart="25dp"
-                android:paddingEnd="25dp"
-                android:paddingTop="11dp"
-                android:paddingBottom="11dp"
-                android:text="@string/my_addresses"
-                android:textColor="#6D6E6E"
-                android:textSize="15sp"
-                android:gravity="start" />
-
-        </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@id/linearLayout3" />
 
         <LinearLayout
             android:id="@+id/linearLayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="92dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-
-            <Button
-                android:id="@+id/bank"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/white_settingbottom"
-                android:fontFamily="@font/intermedium"
-                android:paddingStart="25dp"
-                android:paddingEnd="25dp"
-                android:paddingTop="11dp"
-                android:paddingBottom="11dp"
-                android:text="@string/msg_bank_accounts"
-                android:textColor="#6D6E6E"
-                android:textSize="15sp"
-                android:gravity="start" />
-
-        </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@id/linearLayout2" />
 
         <FrameLayout
             android:id="@+id/frameBottombar"
@@ -309,6 +231,7 @@
                         android:gravity="center_horizontal"
                         android:singleLine="true"
                         android:text="Notification"
+                        android:textColor="#2196F3"
                         tools:text="@string/lbl_notification" />
                 </LinearLayout>
 
@@ -344,7 +267,6 @@
                         android:ellipsize="end"
                         android:gravity="center_horizontal"
                         android:singleLine="true"
-                        android:textColor="#2196F3"
                         android:text="Account"
                         tools:text="@string/lbl_account" />
                 </LinearLayout>

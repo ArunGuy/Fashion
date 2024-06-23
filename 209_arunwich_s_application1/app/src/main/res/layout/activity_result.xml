@@ -59,7 +59,18 @@
 
                     app:theme="@style/searchViewFrame2432" />
 
-                <!-- Search Icon -->
+                <Button
+                    android:id="@+id/imageSearchOne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="34dp"
+                    android:layout_marginStart="@dimen/_15pxh"
+                    android:layout_marginTop="@dimen/_9pxv"
+                    android:layout_marginBottom="@dimen/_9pxv"
+                    android:scaleType="fitXY"
+                    android:background="@drawable/img_search_indigo_300_20x20"
+                    tools:ignore="ContentDescription"
+                    tools:background="@drawable/img_search_indigo_300_20x20" />
+
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
 
@@ -97,16 +108,168 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerResult"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="559dp"
                 android:layout_marginHorizontal="@dimen/_20pxh"
                 android:layout_marginVertical="@dimen/_20pxv"
+                android:background="#00FFFFFF"
                 android:gravity="center_horizontal"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="2"
                 tools:itemCount="8"
-                tools:listitem="@layout/row_result"
-                android:background="#00FFFFFF" />
+                tools:listitem="@layout/row_result" />
 
         </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <FrameLayout android:id="@+id/frameBottombar"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent" style="@style/groupStylewhite_5">
+            <LinearLayout android:id="@+id/linearRowhome"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/_28pxv"
+                android:layout_marginTop="@dimen/_10pxv"
+                android:layout_width="match_parent" android:orientation="horizontal">
+                <LinearLayout android:id="@+id/linearHome"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_1pxv"
+                    android:layout_marginTop="@dimen/_7pxv"
+                    android:layout_weight="1" android:layout_width="0dp" android:orientation="vertical"
+                    android:clickable="true"
+                    android:focusable="true">
+                    <ImageView android:id="@+id/imageHome"
+                        android:layout_gravity="center"
+                        android:layout_height="@dimen/_20pxh"
+                        android:layout_width="@dimen/_26pxh"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_home"
+                        tools:ignore="ContentDescription" tools:src="@drawable/img_home"/>
+                    <TextView android:ellipsize="end"
+                        android:gravity="center_horizontal"
+                        android:id="@+id/txtHomeOne"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_2pxh"
+                        android:layout_marginStart="@dimen/_2pxh"
+                        android:layout_marginTop="@dimen/_3pxv"
+                        android:layout_width="match_parent"
+                        android:singleLine="true"
+                        android:text="Home"
+                        style="@style/txtIntermedium12_1" tools:text="@string/lbl_home"/>
+
+                </LinearLayout>
+                <LinearLayout android:id="@+id/linearCart"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_1pxv"
+                    android:layout_marginTop="@dimen/_7pxv"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_weight="1" android:layout_width="0dp" android:orientation="vertical">
+                    <ImageView
+                        android:id="@+id/imageThumbsupOne"
+                        android:layout_width="@dimen/_29pxh"
+                        android:layout_height="@dimen/_20pxh"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_thumbsup_gray_600"
+                        tools:ignore="ContentDescription"
+                        tools:src="@drawable/img_thumbsup_gray_600" />
+
+                    <TextView
+                        android:id="@+id/txtCart"
+                        style="@style/txtIntermedium12_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_2pxh"
+                        android:layout_marginTop="@dimen/_3pxv"
+                        android:layout_marginEnd="@dimen/_2pxh"
+                        android:ellipsize="end"
+                        android:gravity="center_horizontal"
+                        android:singleLine="true"
+                        android:text="Shop"
+                        />
+                </LinearLayout>
+                <LinearLayout android:id="@+id/linearPropor"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_weight="1" android:layout_width="0dp" android:orientation="vertical">
+                    <ImageView android:id="@+id/imageThumbsupTwo"
+                        android:layout_gravity="center"
+                        android:layout_height="@dimen/_28pxh"
+                        android:layout_marginTop="@dimen/_3pxv"
+                        android:layout_width="@dimen/_24pxh"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_thumbsup_gray_600_28x24"
+                        tools:ignore="ContentDescription" tools:src="@drawable/img_thumbsup_gray_600_28x24"/>
+                    <TextView android:ellipsize="end"
+                        android:gravity="center_horizontal"
+                        android:id="@+id/txtProportion"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_2pxh"
+                        android:layout_marginStart="@dimen/_2pxh"
+                        android:layout_marginTop="@dimen/_1pxv"
+                        android:layout_width="match_parent"
+                        android:singleLine="true"
+                        android:text="Proportion"
+                        style="@style/txtIntermedium12_1" tools:text="@string/lbl_proportion"/>
+                </LinearLayout>
+                <LinearLayout android:id="@+id/linearNoti"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_1pxv"
+                    android:layout_marginTop="@dimen/_6pxv"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_weight="1" android:layout_width="0dp" android:orientation="vertical">
+                    <ImageView android:id="@+id/imageVector"
+                        android:layout_gravity="center"
+                        android:layout_height="@dimen/_23pxh"
+                        android:layout_width="@dimen/_20pxh"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_vector"
+                        tools:ignore="ContentDescription" tools:src="@drawable/img_vector"/>
+                    <TextView android:ellipsize="end"
+                        android:gravity="center_horizontal"
+                        android:id="@+id/txtNotification"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_2pxh"
+                        android:layout_marginStart="@dimen/_2pxh"
+                        android:layout_marginTop="@dimen/_1pxv"
+                        android:layout_width="match_parent"
+                        android:singleLine="true"
+                        android:text="Notification"
+                        style="@style/txtIntermedium12_1" tools:text="@string/lbl_notification"/>
+                </LinearLayout>
+                <LinearLayout android:id="@+id/linearAc"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_1pxv"
+                    android:layout_marginTop="@dimen/_7pxv"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_weight="1" android:layout_width="0dp" android:orientation="vertical">
+                    <ImageView android:id="@+id/imageLockTwo"
+                        android:layout_gravity="center"
+                        android:layout_height="@dimen/_20pxh"
+                        android:layout_width="@dimen/_17pxh"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_lock_gray_600"
+                        tools:ignore="ContentDescription" tools:src="@drawable/img_lock_gray_600"/>
+                    <TextView android:ellipsize="end"
+                        android:gravity="center_horizontal"
+                        android:id="@+id/txtAccount"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_2pxh"
+                        android:layout_marginStart="@dimen/_2pxh"
+                        android:layout_marginTop="@dimen/_3pxv"
+                        android:layout_width="match_parent"
+                        android:singleLine="true"
+                        android:text="Account"
+                        style="@style/txtIntermedium12_1" tools:text="@string/lbl_account"/>
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
     </LinearLayout>
+    </LinearLayout>
+
 </layout>

@@ -1,9 +1,9 @@
 package com.arunwichsapplication.app.modules.result.ui
 
 import ResultAdapter
+import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.widget.SearchView
 import com.arunwichsapplication.app.R
@@ -11,9 +11,13 @@ import com.arunwichsapplication.app.appcomponents.base.BaseActivity
 import com.arunwichsapplication.app.databinding.ActivityResultBinding
 import com.arunwichsapplication.app.modules.BodyAnalyzer
 import com.arunwichsapplication.app.modules.DatabaseHelper
+import com.arunwichsapplication.app.modules.account.ui.AccountActivity
+import com.arunwichsapplication.app.modules.notification.ui.NotificationActivity
+import com.arunwichsapplication.app.modules.prop.ui.PropActivity
 import com.arunwichsapplication.app.modules.result.data.model.ResultRowModel
 import com.arunwichsapplication.app.modules.result.data.model.SpinnerFrame2441Model
 import com.arunwichsapplication.app.modules.result.data.viewmodel.ResultVM
+import com.arunwichsapplication.app.modules.setting.ui.SettingActivity
 
 
 class ResultActivity : BaseActivity<ActivityResultBinding>(R.layout.activity_result) {
@@ -27,7 +31,29 @@ class ResultActivity : BaseActivity<ActivityResultBinding>(R.layout.activity_res
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
+    binding.linearHome.setOnClickListener {
+      // Navigate to CartActivity
+      val intent = Intent(this, AccountActivity::class.java)
+      startActivity(intent)
+    }
+    binding.linearPropor.setOnClickListener {
+      // Navigate to CartActivity
+      val intent = Intent(this, PropActivity::class.java)
+      startActivity(intent)
+    }
 
+    binding.linearAc.setOnClickListener {
+      // Navigate to OtherActivity
+      val intent = Intent(this, SettingActivity::class.java)
+      startActivity(intent)
+    }
+
+    binding.linearNoti.setOnClickListener {
+      // Navigate to ProporActivity
+
+      val intent = Intent(this, NotificationActivity::class.java)
+      startActivity(intent)
+    }
 
 
 
@@ -64,73 +90,83 @@ class ResultActivity : BaseActivity<ActivityResultBinding>(R.layout.activity_res
     val clothingDataList = mutableListOf(
       mapOf<String, Double>(
         "bust" to 98.0,
-        "shoulder" to 24.0,
-        "arm" to 40.64,
-        "frontLength" to 54.0,
-        "waist" to 0.0
+        "shoulder" to 45.0,
+        "arm" to 39.50,
+        "frontLength" to 60.0,
+        "waist" to 75.0,
+        "hip" to 0.0
       ),
       mapOf<String, Double>(
-        "bust" to 77.0,
-        "shoulder" to 24.0,
+        "bust" to 88.0,
+        "shoulder" to 47.0,
         "arm" to 38.0,
-        "frontLength" to 41.0,
-        "waist" to 71.0
+        "frontLength" to 63.0,
+        "waist" to 88.0,
+        "hip" to 0.0
       ),
       mapOf<String, Double>(
         "bust" to 38.0,
         "shoulder" to 31.0,
         "arm" to 16.0,
         "frontLength" to 39.0,
-        "waist" to 0.0
+        "waist" to 0.0,
+        "hip" to 0.0
       ),
       mapOf<String, Double>(
         "bust" to 112.0,
         "shoulder" to 0.0,
         "arm" to 44.0,
         "frontLength" to 62.0,
-        "waist" to 0.0
+        "waist" to 0.0,
+        "hip" to 0.0
       ),
       mapOf<String, Double>(
         "bust" to 74.0,
         "shoulder" to 0.0,
         "arm" to 15.0,
         "frontLength" to 48.0,
-        "waist" to 0.0
+        "waist" to 0.0,
+        "hip" to 0.0
       ),
       mapOf<String, Double>(
         "bust" to 99.0,
         "shoulder" to 0.0,
         "arm" to 0.0,
         "frontLength" to 38.0,
-        "waist" to 0.0
+        "waist" to 0.0,
+        "hip" to 0.0
       ),
       mapOf<String, Double>(
         "bust" to 116.0,
         "shoulder" to 57.0,
         "arm" to 52.0,
         "frontLength" to 68.0,
-        "waist" to 0.0
+        "waist" to 0.0,
+        "hip" to 0.0
       ),
       mapOf<String, Double>(
         "bust" to 106.0,
         "shoulder" to 48.0,
         "arm" to 55.0,
         "frontLength" to 44.5,
-        "waist" to 0.0
+        "waist" to 0.0,
+        "hip" to 0.0
       ),
       mapOf<String, Double>(
         "bust" to 91.0,
         "shoulder" to 63.0,
         "arm" to 57.0,
         "frontLength" to 40.0,
-        "waist" to 0.0
+        "waist" to 0.0,
+        "hip" to 0.0
       ),
       mapOf<String, Double>(
         "bust" to 121.0,
         "shoulder" to 50.0,
         "arm" to 52.0,
         "frontLength" to 45.72,
-        "waist" to 0.0
+        "waist" to 0.0,
+        "hip" to 0.0
       )
       ,
       mapOf<String, Double>(
@@ -138,63 +174,72 @@ class ResultActivity : BaseActivity<ActivityResultBinding>(R.layout.activity_res
         "shoulder" to 41.0,
         "arm" to 18.0,
         "frontLength" to 60.00,
-        "waist" to 0.0
+        "waist" to 0.0,
+        "hip" to 0.0
       ),
       mapOf<String, Double>(
         "bust" to 88.0,
         "shoulder" to 0.0,
         "arm" to 60.0,
         "frontLength" to 45.0,
-        "waist" to 68.0
+        "waist" to 68.0,
+        "hip" to 0.0
       ),
       mapOf<String, Double>(
         "bust" to 88.0,
         "shoulder" to 0.0,
         "arm" to 10.0,
         "frontLength" to 46.00,
-        "waist" to 72.0
+        "waist" to 72.0,
+        "hip" to 0.0
       ),
       mapOf<String, Double>(
         "bust" to 88.0,
         "shoulder" to 0.0,
         "arm" to 12.0,
         "frontLength" to 40.00,
-        "waist" to 0.0
+        "waist" to 0.0,
+        "hip" to 0.0
       ),
       mapOf<String, Double>(
         "bust" to 96.52,
         "shoulder" to 0.0,
         "arm" to 12.0,
         "frontLength" to 38.1,
-        "waist" to 0.0
+        "waist" to 0.0,
+        "hip" to 0.0
       ),
       mapOf<String, Double>(
         "bust" to 60.0,
         "shoulder" to 20.0,
         "arm" to 45.0,
         "frontLength" to 98.0,
-        "waist" to 0.0
+        "waist" to 0.0,
+        "hip" to 0.0
       ),
       mapOf<String, Double>(
         "bust" to 81.0,
         "shoulder" to 0.0,
         "arm" to 20.0,
         "frontLength" to 55.88,
-        "waist" to 0.0
+        "waist" to 0.0,
+        "hip" to 0.0
       ),
       mapOf<String, Double>(
         "bust" to 106.0,
         "shoulder" to 0.0,
         "arm" to 35.56,
         "frontLength" to 68.58,
-        "waist" to 0.0
+        "waist" to 0.0,
+        "hip" to 0.0
       ),
       mapOf<String, Double>(
         "bust" to 101.0,
         "shoulder" to 45.72,
         "arm" to 20.32,
         "frontLength" to 67.00,
-        "waist" to 0.0
+        "waist" to 0.0,
+        "hip" to 0.0
       )
     )
 
@@ -359,6 +404,10 @@ class ResultActivity : BaseActivity<ActivityResultBinding>(R.layout.activity_res
     binding.imageArrowleft.setOnClickListener {
       finish()
     }
+
+    binding.imageSearchOne.setOnClickListener {
+      showFilterDialog()
+    }
   }
 
   private fun onClickRecyclerResult(position: Int, item: ResultRowModel) {
@@ -394,7 +443,50 @@ class ResultActivity : BaseActivity<ActivityResultBinding>(R.layout.activity_res
     })
   }
 
+  fun filterList1(filteredFitsWellList: List<ResultRowModel>, query: String) {
+    val filteredList = filteredFitsWellList.filter {
+      it.txtSevenResourceId?.contains(query, ignoreCase = true) ?: false
+    }
+    val resultAdapter = ResultAdapter(filteredList) { position, item ->
+      onClickRecyclerResult(position, item)
+    }
+    binding.recyclerResult.adapter = resultAdapter
+  }
 
+
+  private fun showFilterDialog() {
+    val options = arrayOf("ฟิต", "คับ", "หลวม", "oversize", "ทั้งหมด")
+    var selectedOption = -1 // ตัวแปรเก็บค่าตัวเลือกที่ถูกเลือก
+
+    val builder = AlertDialog.Builder(this)
+    builder.setTitle("Choose a filter")
+    builder.setSingleChoiceItems(options, selectedOption) { dialog, which ->
+      selectedOption = which
+    }
+
+    builder.setPositiveButton("OK") { dialog, which ->
+      if (selectedOption != -1) {
+        val filterCondition = options[selectedOption]
+        if (filterCondition == "ทั้งหมด") {
+          // คืนค่ารายการทั้งหมด
+          val resultAdapter = ResultAdapter(testData) { position, item ->
+            onClickRecyclerResult(position, item)
+          }
+          binding.recyclerResult.adapter = resultAdapter
+        } else {
+          // กรองรายการตามเงื่อนไขที่เลือก
+          filterList1(testData, filterCondition)
+        }
+      }
+    }
+
+    builder.setNegativeButton("Cancel") { dialog, which ->
+      dialog.dismiss()
+    }
+
+    val dialog = builder.create()
+    dialog.show()
+  }
 
 
 

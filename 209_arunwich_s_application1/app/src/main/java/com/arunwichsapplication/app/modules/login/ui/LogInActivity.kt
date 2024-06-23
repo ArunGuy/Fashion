@@ -1,5 +1,6 @@
 package com.arunwichsapplication.app.modules.login.ui
 
+import Notification
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -15,16 +16,12 @@ import com.arunwichsapplication.app.databinding.ActivityLogInBinding
 import com.arunwichsapplication.app.modules.DatabaseHelper
 import com.arunwichsapplication.app.modules.account.ui.AccountActivity
 import com.arunwichsapplication.app.modules.login.data.viewmodel.LogInVM
-import com.arunwichsapplication.app.modules.prop.ui.PropActivity
 import com.arunwichsapplication.app.modules.signup.ui.SignUpActivity
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import kotlin.Int
-import kotlin.String
 
 class LogInActivity : BaseActivity<ActivityLogInBinding>(R.layout.activity_log_in) {
   private val viewModel: LogInVM by viewModels<LogInVM>()
@@ -44,6 +41,8 @@ class LogInActivity : BaseActivity<ActivityLogInBinding>(R.layout.activity_log_i
     googleLogin = GoogleHelper(this, { accountInfo -> }, { error -> })
     databaseHelper = DatabaseHelper(this)
 
+    val notification = Notification(this)
+    notification.createNotificationChannel()
     val status10 = databaseHelper.getStatusForLoggedInUser()
     val intent = Intent(this, AccountActivity::class.java)
     if (status10 == 1) {
@@ -96,15 +95,20 @@ class LogInActivity : BaseActivity<ActivityLogInBinding>(R.layout.activity_log_i
             }
           } else {
             // User doesn't exist or credentials are incorrect
-            Toast.makeText(this, "Invalid email or password", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "กรุณากรอกข้อมูลให้ครบ", Toast.LENGTH_SHORT).show()
           }
         } else {
           // Database connection failed
           Toast.makeText(this, "Database connection failed", Toast.LENGTH_SHORT).show()
         }
+      } else if (email.isEmpty() && password.isNotEmpty()) {
+        Toast.makeText(this, "กรุณาใส่ email", Toast.LENGTH_SHORT).show()
+      } else if (email.isNotEmpty() && password.isEmpty()) {
+        Toast.makeText(this, "กรุณาใส่ password", Toast.LENGTH_SHORT).show()
       } else {
-        Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "กรุณากรอกข้อมูลให้ครบ", Toast.LENGTH_SHORT).show()
       }
+
     }
 
     binding.txtSignup.setOnClickListener {
@@ -132,7 +136,7 @@ class LogInActivity : BaseActivity<ActivityLogInBinding>(R.layout.activity_log_i
       // ดังนั้นให้กำหนดค่า email ให้กับ loggedInUserEmail
       databaseHelper.setLoggedInUserEmail(email)
       // แสดง Toast ต้อนรับผู้ใช้ที่ล็อกอินเข้าสู่ระบบ
-      Toast.makeText(this, "Welcome2 : $email", Toast.LENGTH_SHORT).show()
+      Toast.makeText(this, "Welcome : $email", Toast.LENGTH_SHORT).show()
       // เรียกใช้ Activity ที่ต้องการเปิดหลังจากล็อกอินเสร็จสมบูรณ์
       val intent = Intent(this, AccountActivity::class.java)
       startActivity(intent)
@@ -161,7 +165,6 @@ class LogInActivity : BaseActivity<ActivityLogInBinding>(R.layout.activity_log_i
       }
     }, 5000) // รอ 5 วินาที ก่อนที่โค้ดในบล็อกนี้จะถูกเรียก
   }
-
 
 
 

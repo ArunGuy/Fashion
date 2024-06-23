@@ -39,6 +39,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txtFrameThree"
+                    style="@style/txtIntersemibold16"
                     android:layout_width="287dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_35pxh"
