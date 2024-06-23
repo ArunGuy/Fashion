@@ -33,6 +33,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_MESSAGE = "message";
 
 
+    // Define constants for the ClothingData table
+    private static final String TABLE_CLOTHING_DATA = "ClothingData";
+    private static final String COLUMN_PRODUCT_ID = "ProductID";
+    private static final String COLUMN_NAME = "Name";
+    private static final String COLUMN_SIZE_ID = "SizeID";
+    private static final String COLUMN_SRC = "src";
+    private static final String COLUMN_PRICE = "Price";
+
+    // Define constants for the ClothingSize table
+    private static final String TABLE_CLOTHING_SIZE = "ClothingSize";
+    private static final String COLUMN_FRONT_LENGTH = "frontLength";
+    private static final String COLUMN_BUST_SIZE = "bustSize";
+    private static final String COLUMN_SHOULDER_WIDTH = "shoulderWidth";
+    private static final String COLUMN_WAIST_SIZE = "waistSize";
+    private static final String COLUMN_ARM_LENGTH = "armLength";
+    private static final String COLUMN_HIP_SIZE = "hipSize";
+    private static final String COLUMN_CLOTHING_DATA_PRODUCT_ID = "ProductID";
     private static final String COLUMN_TIMESTAMP = "timestamp";
     private static final String COLUMN_TITLE = "title";
     private Context context;
@@ -45,6 +62,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        // Create UserProfile table
         String createUserTableQuery = "CREATE TABLE IF NOT EXISTS " + TABLE_USER_PROFILE + " (" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_EMAIL + " TEXT, " +
@@ -55,11 +73,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_WAIST + " DOUBLE, " +
                 COLUMN_CHEST + " DOUBLE, " +
                 COLUMN_HIP + " DOUBLE, " +
-                COLUMN_STATUS + " INTEGER DEFAULT 0, " +
                 COLUMN_TIMESTAMP + " DATETIME DEFAULT CURRENT_TIMESTAMP, " +
-                COLUMN_TITLE + " TEXT," +
+                COLUMN_TITLE + " TEXT, " +
                 COLUMN_MESSAGE + " TEXT)"; // Add column for timestamp and title
         db.execSQL(createUserTableQuery);
+
+        // Create ClothingData table
+        String createClothingDataTableQuery = "CREATE TABLE IF NOT EXISTS " + TABLE_CLOTHING_DATA + " (" +
+                COLUMN_PRODUCT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_NAME + " TEXT NOT NULL, " +
+                COLUMN_SIZE_ID + " INTEGER, " +
+                COLUMN_SRC + " TEXT, " +
+                COLUMN_PRICE + " DOUBLE)";
+        db.execSQL(createClothingDataTableQuery);
+
+        // Create ClothingSize table
+        String createClothingSizeTableQuery = "CREATE TABLE IF NOT EXISTS " + TABLE_CLOTHING_SIZE + " (" +
+                COLUMN_CLOTHING_DATA_PRODUCT_ID + " INTEGER, " +
+                COLUMN_FRONT_LENGTH + " DOUBLE, " +
+                COLUMN_BUST_SIZE + " DOUBLE, " +
+                COLUMN_SHOULDER_WIDTH + " DOUBLE, " +
+                COLUMN_WAIST_SIZE + " DOUBLE, " +
+                COLUMN_ARM_LENGTH + " DOUBLE, " +
+                COLUMN_HIP_SIZE + " DOUBLE, " +
+                "FOREIGN KEY(" + COLUMN_CLOTHING_DATA_PRODUCT_ID + ") REFERENCES " + TABLE_CLOTHING_DATA + "(" + COLUMN_PRODUCT_ID + "))";
+        db.execSQL(createClothingSizeTableQuery);
     }
 
 

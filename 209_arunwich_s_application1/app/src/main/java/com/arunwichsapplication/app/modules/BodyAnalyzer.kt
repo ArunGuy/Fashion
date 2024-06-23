@@ -74,34 +74,35 @@ class BodyAnalyzer {
         return when (bodyType) {
             "Hourglass" -> {
                 when {
-                    // ฟิต (Fits well): ห่างกัน -3 ถึง 7 เซนติเมตร โดยเน้นที่ waist, bust, และ hip เท่านั้น
-                    (((clothing["bust"]!! - bustSize!!) in -3.0..7.0) ||
-                            ((clothing["waist"]!! - waistSize!!) in -3.0..7.0) ||
-                            ((clothing["hip"]!! - hipSize!!) in -3.0..7.0)) -> "ฟิต (Fits well)"
+                    // คับ (Too Tight): ห่างกัน 0 ถึง 2.54 เซนติเมตร โดยเน้นที่ waist, bust, และ hip เท่านั้น
+                    (((clothing["bust"]!! - bustSize!!) in 0.0..2.54) &&
+                            ((clothing["waist"]!! - waistSize!!) in 0.0..2.54) &&
+                            ((clothing["hip"]!! - hipSize!!) in 0.0..2.54)) -> "คับ (Too Tight)"
 
-                    // หลวม (Too Loose): ห่างกัน 8-14 เซนติเมตร โดยเช็คทุกด้าน
-                    (((clothing["bust"]!! - bustSize!!) in 8.0..14.0) ||
-                            ((clothing["waist"]!! - waistSize!!) in 8.0..14.0) ||
-                            ((clothing["hip"]!! - hipSize!!) in 8.0..14.0)) -> "หลวม (Too Loose)"
+                    // ฟิต (Fits well): ห่างกัน 2.54 ถึง 5.08 เซนติเมตร โดยเน้นที่ waist, bust, และ hip เท่านั้น
+                    (((clothing["bust"]!! - bustSize!!) in 2.54..5.08) &&
+                            ((clothing["waist"]!! - waistSize!!) in 2.54..5.08) &&
+                            ((clothing["hip"]!! - hipSize!!) in 2.54..5.08)) -> "ฟิต (Fits well)"
 
-                    // คับ (Too Tight): ห่างกัน -15 ถึง -3 เซนติเมตร ในทุกด้าน โดยเน้นที่ bust, waist, และ hip
-                    (((clothing["bust"]!! - bustSize!!) in -15.0..-3.0) &&
-                            ((clothing["waist"]!! - waistSize!!) in -15.0..-3.0) &&
-                            ((clothing["hip"]!! - hipSize!!) in -15.0..-3.0)) -> "คับ (Too Tight)"
+                    // หลวม (Too Loose): ห่างกัน 7.62 ถึง 12.7 เซนติเมตร โดยเช็คทุกด้าน
+                    (((clothing["bust"]!! - bustSize!!) in 7.62..12.7) &&
+                            ((clothing["waist"]!! - waistSize!!) in 7.62..12.7) &&
+                            ((clothing["hip"]!! - hipSize!!) in 7.62..12.7)) -> "หลวม (Too Loose)"
 
-                    // คับเกินไปใส่ไม่ได้ (Way Too Tight): ห่างกัน -9 เซนติเมตร หรือน้อยกว่าในทุกด้าน, เฉพาะ bust, waist, และ hip
-                    (((clothing["bust"]!! - bustSize!!) < -9) &&
-                            ((clothing["waist"]!! - waistSize!!) < -9) &&
-                            ((clothing["hip"]!! - hipSize!!) < -9)) -> "คับเกินไป (Way Too Tight)"
+                    // oversize: ถ้าขนาดของเสื้อผ้ามีความแตกต่างจากขนาดของผู้ใส่เกิน 12.7 เซนติเมตร ใน bust, waist, และ hip หรือ shoulder
+                    (((clothing["bust"]!! - bustSize!!) > 12.7) &&
+                            ((clothing["waist"]!! - waistSize!!) > 12.7) &&
+                            ((clothing["hip"]!! - hipSize!!) > 12.7) ||
+                            ((clothing["shoulder"]!! - shoulderWidth!!) > 12.7)) -> "oversize"
 
-                    // oversize: ถ้าขนาดของเสื้อผ้ามีความแตกต่างจากขนาดของผู้ใส่เกิน 9 เซนติเมตร ใน bust, waist, และ hip หรือ shoulder
-                    (((clothing["bust"]!! - bustSize!!) > 9) ||
-                            ((clothing["waist"]!! - waistSize!!) > 9) ||
-                            ((clothing["hip"]!! - hipSize!!) > 9) ||
-                            ((clothing["shoulder"]!! - shoulderWidth!!) > 9)) -> "oversize"
+                    // ไม่เหมาะสมกับรูปร่างของคุณ: ห่างกันน้อยกว่า 0 เซนติเมตร ใน bust, waist, และ hip
+                    (((clothing["bust"]!! - bustSize!!) < 0) &&
+                            ((clothing["waist"]!! - waistSize!!) < 0) &&
+                            ((clothing["hip"]!! - hipSize!!) < 0)) -> "ไม่เหมาะสมกับรูปร่างของคุณ"
 
                     else -> "ไม่เหมาะสมกับรูปร่างของคุณ"
                 }
+
 
 
 
@@ -111,31 +112,31 @@ class BodyAnalyzer {
             }
             "Apple" -> {
                 when {
-                    // ฟิต (Fits well): ห่างกัน -3 ถึง 7 เซนติเมตร โดยเน้นที่ waist, bust, และ hip เท่านั้น
-                    (((clothing["bust"]!! - bustSize!!) in -3.0..7.0) ||
-                            ((clothing["waist"]!! - waistSize!!) in -3.0..7.0) ||
-                            ((clothing["hip"]!! - hipSize!!) in -3.0..7.0)) -> "ฟิต (Fits well)"
+                    // คับ (Too Tight): ห่างกัน 0 ถึง 2.54 เซนติเมตร โดยเน้นที่ waist, bust, และ hip เท่านั้น
+                    (((clothing["bust"]!! - bustSize!!) in 0.0..2.54) &&
+                            ((clothing["waist"]!! - waistSize!!) in 0.0..2.54) &&
+                            ((clothing["hip"]!! - hipSize!!) in 0.0..2.54)) -> "คับ (Too Tight)"
 
-                    // หลวม (Too Loose): ห่างกัน 8-14 เซนติเมตร โดยเช็คทุกด้าน
-                    (((clothing["bust"]!! - bustSize!!) in 8.0..14.0) ||
-                            ((clothing["waist"]!! - waistSize!!) in 8.0..14.0) ||
-                            ((clothing["hip"]!! - hipSize!!) in 8.0..14.0)) -> "หลวม (Too Loose)"
+                    // ฟิต (Fits well): ห่างกัน 2.54 ถึง 5.08 เซนติเมตร โดยเน้นที่ waist, bust, และ hip เท่านั้น
+                    (((clothing["bust"]!! - bustSize!!) in 2.54..5.08) &&
+                            ((clothing["waist"]!! - waistSize!!) in 2.54..5.08) &&
+                            ((clothing["hip"]!! - hipSize!!) in 2.54..5.08)) -> "ฟิต (Fits well)"
 
-                    // คับ (Too Tight): ห่างกัน -15 ถึง -3 เซนติเมตร ในทุกด้าน โดยเน้นที่ bust, waist, และ hip เท่านั้น
-                    (((clothing["bust"]!! - bustSize!!) in -15.0..-3.0) &&
-                            ((clothing["waist"]!! - waistSize!!) in -15.0..-3.0) &&
-                            ((clothing["hip"]!! - hipSize!!) in -15.0..-3.0)) -> "คับ (Too Tight)"
+                    // หลวม (Too Loose): ห่างกัน 7.62 ถึง 12.7 เซนติเมตร โดยเช็คทุกด้าน
+                    (((clothing["bust"]!! - bustSize!!) in 7.62..12.7) &&
+                            ((clothing["waist"]!! - waistSize!!) in 7.62..12.7) &&
+                            ((clothing["hip"]!! - hipSize!!) in 7.62..12.7)) -> "หลวม (Too Loose)"
 
-                    // คับเกินไปใส่ไม่ได้ (Way Too Tight): ห่างกัน -9 เซนติเมตร หรือน้อยกว่าในทุกด้าน, เฉพาะ bust, waist, และ hip เท่านั้น
-                    (((clothing["bust"]!! - bustSize!!) < -9) &&
-                            ((clothing["waist"]!! - waistSize!!) < -9) &&
-                            ((clothing["hip"]!! - hipSize!!) < -9)) -> "คับเกินไป (Way Too Tight)"
+                    // oversize: ถ้าขนาดของเสื้อผ้ามีความแตกต่างจากขนาดของผู้ใส่เกิน 12.7 เซนติเมตร ใน bust, waist, และ hip หรือ shoulder
+                    (((clothing["bust"]!! - bustSize!!) > 12.7) &&
+                            ((clothing["waist"]!! - waistSize!!) > 12.7) &&
+                            ((clothing["hip"]!! - hipSize!!) > 12.7) ||
+                            ((clothing["shoulder"]!! - shoulderWidth!!) > 12.7)) -> "oversize"
 
-                    // oversize: ถ้าขนาดของเสื้อผ้ามีความแตกต่างจากขนาดของผู้ใส่เกิน 9 เซนติเมตร ใน bust, waist, และ hip หรือ shoulder
-                    (((clothing["bust"]!! - bustSize!!) > 9) ||
-                            ((clothing["waist"]!! - waistSize!!) > 9) ||
-                            ((clothing["hip"]!! - hipSize!!) > 9) ||
-                            ((clothing["shoulder"]!! - shoulderWidth!!) > 9)) -> "oversize"
+                    // ไม่เหมาะสมกับรูปร่างของคุณ: ห่างกันน้อยกว่า 0 เซนติเมตร ใน bust, waist, และ hip
+                    (((clothing["bust"]!! - bustSize!!) < 0) &&
+                            ((clothing["waist"]!! - waistSize!!) < 0) &&
+                            ((clothing["hip"]!! - hipSize!!) < 0)) -> "ไม่เหมาะสมกับรูปร่างของคุณ"
 
                     else -> "ไม่เหมาะสมกับรูปร่างของคุณ"
                 }
@@ -145,31 +146,31 @@ class BodyAnalyzer {
             }
             "Pear" -> {
                 when {
-                    // ฟิต (Fits well): ห่างกัน -3 ถึง 7 เซนติเมตร โดยเน้นที่ waist, bust, และ hip เท่านั้น
-                    (((clothing["bust"]!! - bustSize!!) in -3.0..7.0) ||
-                            ((clothing["waist"]!! - waistSize!!) in -3.0..7.0) ||
-                            ((clothing["hip"]!! - hipSize!!) in -3.0..7.0)) -> "ฟิต (Fits well)"
+                    // คับ (Too Tight): ห่างกัน 0 ถึง 2.54 เซนติเมตร โดยเน้นที่ waist, bust, และ hip เท่านั้น
+                    (((clothing["bust"]!! - bustSize!!) in 0.0..2.54) &&
+                            ((clothing["waist"]!! - waistSize!!) in 0.0..2.54) &&
+                            ((clothing["hip"]!! - hipSize!!) in 0.0..2.54)) -> "คับ (Too Tight)"
 
-                    // หลวม (Too Loose): ห่างกัน 8-14 เซนติเมตร โดยเช็คทุกด้าน
-                    (((clothing["bust"]!! - bustSize!!) in 8.0..14.0) ||
-                            ((clothing["waist"]!! - waistSize!!) in 8.0..14.0) ||
-                            ((clothing["hip"]!! - hipSize!!) in 8.0..14.0)) -> "หลวม (Too Loose)"
+                    // ฟิต (Fits well): ห่างกัน 2.54 ถึง 5.08 เซนติเมตร โดยเน้นที่ waist, bust, และ hip เท่านั้น
+                    (((clothing["bust"]!! - bustSize!!) in 2.54..5.08) &&
+                            ((clothing["waist"]!! - waistSize!!) in 2.54..5.08) &&
+                            ((clothing["hip"]!! - hipSize!!) in 2.54..5.08)) -> "ฟิต (Fits well)"
 
-                    // คับ (Too Tight): ห่างกัน -15 ถึง -3 เซนติเมตร ในทุกด้าน โดยเน้นที่ bust, waist, และ hip เท่านั้น
-                    (((clothing["bust"]!! - bustSize!!) in -15.0..-3.0) &&
-                            ((clothing["waist"]!! - waistSize!!) in -15.0..-3.0) &&
-                            ((clothing["hip"]!! - hipSize!!) in -15.0..-3.0)) -> "คับ (Too Tight)"
+                    // หลวม (Too Loose): ห่างกัน 7.62 ถึง 12.7 เซนติเมตร โดยเช็คทุกด้าน
+                    (((clothing["bust"]!! - bustSize!!) in 7.62..12.7) &&
+                            ((clothing["waist"]!! - waistSize!!) in 7.62..12.7) &&
+                            ((clothing["hip"]!! - hipSize!!) in 7.62..12.7)) -> "หลวม (Too Loose)"
 
-                    // คับเกินไปใส่ไม่ได้ (Way Too Tight): ห่างกัน -9 เซนติเมตร หรือน้อยกว่าในทุกด้าน, เฉพาะ bust, waist, และ hip เท่านั้น
-                    (((clothing["bust"]!! - bustSize!!) < -9) &&
-                            ((clothing["waist"]!! - waistSize!!) < -9) &&
-                            ((clothing["hip"]!! - hipSize!!) < -9)) -> "คับเกินไป (Way Too Tight)"
+                    // oversize: ถ้าขนาดของเสื้อผ้ามีความแตกต่างจากขนาดของผู้ใส่เกิน 12.7 เซนติเมตร ใน bust, waist, และ hip หรือ shoulder
+                    (((clothing["bust"]!! - bustSize!!) > 12.7) &&
+                            ((clothing["waist"]!! - waistSize!!) > 12.7) &&
+                            ((clothing["hip"]!! - hipSize!!) > 12.7) ||
+                            ((clothing["shoulder"]!! - shoulderWidth!!) > 12.7)) -> "oversize"
 
-                    // oversize: ถ้าขนาดของเสื้อผ้ามีความแตกต่างจากขนาดของผู้ใส่เกิน 9 เซนติเมตร ใน bust, waist, และ hip หรือ shoulder
-                    (((clothing["bust"]!! - bustSize!!) > 9) ||
-                            ((clothing["waist"]!! - waistSize!!) > 9) ||
-                            ((clothing["hip"]!! - hipSize!!) > 9) ||
-                            ((clothing["shoulder"]!! - shoulderWidth!!) > 9)) -> "oversize"
+                    // ไม่เหมาะสมกับรูปร่างของคุณ: ห่างกันน้อยกว่า 0 เซนติเมตร ใน bust, waist, และ hip
+                    (((clothing["bust"]!! - bustSize!!) < 0) &&
+                            ((clothing["waist"]!! - waistSize!!) < 0) &&
+                            ((clothing["hip"]!! - hipSize!!) < 0)) -> "ไม่เหมาะสมกับรูปร่างของคุณ"
 
                     else -> "ไม่เหมาะสมกับรูปร่างของคุณ"
                 }
@@ -181,31 +182,31 @@ class BodyAnalyzer {
             }
             "Rectangle" -> {
                 when {
-                    // ฟิต (Fits well): ห่างกัน -3 ถึง 7 เซนติเมตร โดยเน้นที่ waist, bust, และ hip เท่านั้น
-                    (((clothing["bust"]!! - bustSize!!) in -3.0..7.0) ||
-                            ((clothing["waist"]!! - waistSize!!) in -3.0..7.0) ||
-                            ((clothing["hip"]!! - hipSize!!) in -3.0..7.0)) -> "ฟิต (Fits well)"
+                    // คับ (Too Tight): ห่างกัน 0 ถึง 2.54 เซนติเมตร โดยเน้นที่ waist, bust, และ hip เท่านั้น
+                    (((clothing["bust"]!! - bustSize!!) in 0.0..2.54) &&
+                            ((clothing["waist"]!! - waistSize!!) in 0.0..2.54) &&
+                            ((clothing["hip"]!! - hipSize!!) in 0.0..2.54)) -> "คับ (Too Tight)"
 
-                    // หลวม (Too Loose): ห่างกัน 8-14 เซนติเมตร โดยเช็คทุกด้าน
-                    (((clothing["bust"]!! - bustSize!!) in 8.0..14.0) ||
-                            ((clothing["waist"]!! - waistSize!!) in 8.0..14.0) ||
-                            ((clothing["hip"]!! - hipSize!!) in 8.0..14.0)) -> "หลวม (Too Loose)"
+                    // ฟิต (Fits well): ห่างกัน 2.54 ถึง 5.08 เซนติเมตร โดยเน้นที่ waist, bust, และ hip เท่านั้น
+                    (((clothing["bust"]!! - bustSize!!) in 2.54..5.08) &&
+                            ((clothing["waist"]!! - waistSize!!) in 2.54..5.08) &&
+                            ((clothing["hip"]!! - hipSize!!) in 2.54..5.08)) -> "ฟิต (Fits well)"
 
-                    // คับ (Too Tight): ห่างกัน -15 ถึง -3 เซนติเมตร ในทุกด้าน โดยเน้นที่ bust, waist, และ hip เท่านั้น
-                    (((clothing["bust"]!! - bustSize!!) in -15.0..-3.0) &&
-                            ((clothing["waist"]!! - waistSize!!) in -15.0..-3.0) &&
-                            ((clothing["hip"]!! - hipSize!!) in -15.0..-3.0)) -> "คับ (Too Tight)"
+                    // หลวม (Too Loose): ห่างกัน 7.62 ถึง 12.7 เซนติเมตร โดยเช็คทุกด้าน
+                    (((clothing["bust"]!! - bustSize!!) in 7.62..12.7) &&
+                            ((clothing["waist"]!! - waistSize!!) in 7.62..12.7) &&
+                            ((clothing["hip"]!! - hipSize!!) in 7.62..12.7)) -> "หลวม (Too Loose)"
 
-                    // คับเกินไปใส่ไม่ได้ (Way Too Tight): ห่างกัน -9 เซนติเมตร หรือน้อยกว่าในทุกด้าน, เฉพาะ bust, waist, และ hip เท่านั้น
-                    (((clothing["bust"]!! - bustSize!!) < -9) &&
-                            ((clothing["waist"]!! - waistSize!!) < -9) &&
-                            ((clothing["hip"]!! - hipSize!!) < -9)) -> "คับเกินไป (Way Too Tight)"
+                    // oversize: ถ้าขนาดของเสื้อผ้ามีความแตกต่างจากขนาดของผู้ใส่เกิน 12.7 เซนติเมตร ใน bust, waist, และ hip หรือ shoulder
+                    (((clothing["bust"]!! - bustSize!!) > 12.7) &&
+                            ((clothing["waist"]!! - waistSize!!) > 12.7) &&
+                            ((clothing["hip"]!! - hipSize!!) > 12.7) ||
+                            ((clothing["shoulder"]!! - shoulderWidth!!) > 12.7)) -> "oversize"
 
-                    // oversize: ถ้าขนาดของเสื้อผ้ามีความแตกต่างจากขนาดของผู้ใส่เกิน 9 เซนติเมตร ใน bust, waist, และ hip หรือ shoulder
-                    (((clothing["bust"]!! - bustSize!!) > 9) ||
-                            ((clothing["waist"]!! - waistSize!!) > 9) ||
-                            ((clothing["hip"]!! - hipSize!!) > 9) ||
-                            ((clothing["shoulder"]!! - shoulderWidth!!) > 9)) -> "oversize"
+                    // ไม่เหมาะสมกับรูปร่างของคุณ: ห่างกันน้อยกว่า 0 เซนติเมตร ใน bust, waist, และ hip
+                    (((clothing["bust"]!! - bustSize!!) < 0) &&
+                            ((clothing["waist"]!! - waistSize!!) < 0) &&
+                            ((clothing["hip"]!! - hipSize!!) < 0)) -> "ไม่เหมาะสมกับรูปร่างของคุณ"
 
                     else -> "ไม่เหมาะสมกับรูปร่างของคุณ"
                 }
@@ -218,31 +219,31 @@ class BodyAnalyzer {
             }
             "Inverted Triangle" -> {
                 when {
-                    // ฟิต (Fits well): ห่างกัน -3 ถึง 7 เซนติเมตร โดยเน้นที่ waist, bust, และ hip เท่านั้น
-                    (((clothing["bust"]!! - bustSize!!) in -3.0..7.0) ||
-                            ((clothing["waist"]!! - waistSize!!) in -3.0..7.0) ||
-                            ((clothing["hip"]!! - hipSize!!) in -3.0..7.0)) -> "ฟิต (Fits well)"
+                    // คับ (Too Tight): ห่างกัน 0 ถึง 2.54 เซนติเมตร โดยเน้นที่ waist, bust, และ hip เท่านั้น
+                    (((clothing["bust"]!! - bustSize!!) in 0.0..2.54) &&
+                            ((clothing["waist"]!! - waistSize!!) in 0.0..2.54) &&
+                            ((clothing["hip"]!! - hipSize!!) in 0.0..2.54)) -> "คับ (Too Tight)"
 
-                    // หลวม (Too Loose): ห่างกัน 8-14 เซนติเมตร โดยเช็คทุกด้าน
-                    (((clothing["bust"]!! - bustSize!!) in 8.0..14.0) ||
-                            ((clothing["waist"]!! - waistSize!!) in 8.0..14.0) ||
-                            ((clothing["hip"]!! - hipSize!!) in 8.0..14.0)) -> "หลวม (Too Loose)"
+                    // ฟิต (Fits well): ห่างกัน 2.54 ถึง 5.08 เซนติเมตร โดยเน้นที่ waist, bust, และ hip เท่านั้น
+                    (((clothing["bust"]!! - bustSize!!) in 2.54..5.08) &&
+                            ((clothing["waist"]!! - waistSize!!) in 2.54..5.08) &&
+                            ((clothing["hip"]!! - hipSize!!) in 2.54..5.08)) -> "ฟิต (Fits well)"
 
-                    // คับ (Too Tight): ห่างกัน -15 ถึง -3 เซนติเมตร ในทุกด้าน โดยเน้นที่ bust, waist, และ hip เท่านั้น
-                    (((clothing["bust"]!! - bustSize!!) in -15.0..-3.0) &&
-                            ((clothing["waist"]!! - waistSize!!) in -15.0..-3.0) &&
-                            ((clothing["hip"]!! - hipSize!!) in -15.0..-3.0)) -> "คับ (Too Tight)"
+                    // หลวม (Too Loose): ห่างกัน 7.62 ถึง 12.7 เซนติเมตร โดยเช็คทุกด้าน
+                    (((clothing["bust"]!! - bustSize!!) in 7.62..12.7) &&
+                            ((clothing["waist"]!! - waistSize!!) in 7.62..12.7) &&
+                            ((clothing["hip"]!! - hipSize!!) in 7.62..12.7)) -> "หลวม (Too Loose)"
 
-                    // คับเกินไปใส่ไม่ได้ (Way Too Tight): ห่างกัน -9 เซนติเมตร หรือน้อยกว่าในทุกด้าน, เฉพาะ bust, waist, และ hip เท่านั้น
-                    (((clothing["bust"]!! - bustSize!!) < -9) &&
-                            ((clothing["waist"]!! - waistSize!!) < -9) &&
-                            ((clothing["hip"]!! - hipSize!!) < -9)) -> "คับเกินไป (Way Too Tight)"
+                    // oversize: ถ้าขนาดของเสื้อผ้ามีความแตกต่างจากขนาดของผู้ใส่เกิน 12.7 เซนติเมตร ใน bust, waist, และ hip หรือ shoulder
+                    (((clothing["bust"]!! - bustSize!!) > 12.7) &&
+                            ((clothing["waist"]!! - waistSize!!) > 12.7) &&
+                            ((clothing["hip"]!! - hipSize!!) > 12.7) ||
+                            ((clothing["shoulder"]!! - shoulderWidth!!) > 12.7)) -> "oversize"
 
-                    // oversize: ถ้าขนาดของเสื้อผ้ามีความแตกต่างจากขนาดของผู้ใส่เกิน 9 เซนติเมตร ใน bust, waist, และ hip หรือ shoulder
-                    (((clothing["bust"]!! - bustSize!!) > 9) ||
-                            ((clothing["waist"]!! - waistSize!!) > 9) ||
-                            ((clothing["hip"]!! - hipSize!!) > 9) ||
-                            ((clothing["shoulder"]!! - shoulderWidth!!) > 9)) -> "oversize"
+                    // ไม่เหมาะสมกับรูปร่างของคุณ: ห่างกันน้อยกว่า 0 เซนติเมตร ใน bust, waist, และ hip
+                    (((clothing["bust"]!! - bustSize!!) < 0) &&
+                            ((clothing["waist"]!! - waistSize!!) < 0) &&
+                            ((clothing["hip"]!! - hipSize!!) < 0)) -> "ไม่เหมาะสมกับรูปร่างของคุณ"
 
                     else -> "ไม่เหมาะสมกับรูปร่างของคุณ"
                 }
@@ -255,31 +256,31 @@ class BodyAnalyzer {
             }
             "Triangle" -> {
                 when {
-                    // ฟิต (Fits well): ห่างกัน -3 ถึง 7 เซนติเมตร โดยเน้นที่ waist, bust, และ hip เท่านั้น
-                    (((clothing["bust"]!! - bustSize!!) in -3.0..7.0) ||
-                            ((clothing["waist"]!! - waistSize!!) in -3.0..7.0) ||
-                            ((clothing["hip"]!! - hipSize!!) in -3.0..7.0)) -> "ฟิต (Fits well)"
+                    // คับ (Too Tight): ห่างกัน 0 ถึง 2.54 เซนติเมตร โดยเน้นที่ waist, bust, และ hip เท่านั้น
+                    (((clothing["bust"]!! - bustSize!!) in 0.0..2.54) &&
+                            ((clothing["waist"]!! - waistSize!!) in 0.0..2.54) &&
+                            ((clothing["hip"]!! - hipSize!!) in 0.0..2.54)) -> "คับ (Too Tight)"
 
-                    // หลวม (Too Loose): ห่างกัน 8-14 เซนติเมตร โดยเช็คทุกด้าน
-                    (((clothing["bust"]!! - bustSize!!) in 8.0..14.0) ||
-                            ((clothing["waist"]!! - waistSize!!) in 8.0..14.0) ||
-                            ((clothing["hip"]!! - hipSize!!) in 8.0..14.0)) -> "หลวม (Too Loose)"
+                    // ฟิต (Fits well): ห่างกัน 2.54 ถึง 5.08 เซนติเมตร โดยเน้นที่ waist, bust, และ hip เท่านั้น
+                    (((clothing["bust"]!! - bustSize!!) in 2.54..5.08) &&
+                            ((clothing["waist"]!! - waistSize!!) in 2.54..5.08) &&
+                            ((clothing["hip"]!! - hipSize!!) in 2.54..5.08)) -> "ฟิต (Fits well)"
 
-                    // คับ (Too Tight): ห่างกัน -15 ถึง -3 เซนติเมตร ในทุกด้าน โดยเน้นที่ bust, waist, และ hip เท่านั้น
-                    (((clothing["bust"]!! - bustSize!!) in -15.0..-3.0) &&
-                            ((clothing["waist"]!! - waistSize!!) in -15.0..-3.0) &&
-                            ((clothing["hip"]!! - hipSize!!) in -15.0..-3.0)) -> "คับ (Too Tight)"
+                    // หลวม (Too Loose): ห่างกัน 7.62 ถึง 12.7 เซนติเมตร โดยเช็คทุกด้าน
+                    (((clothing["bust"]!! - bustSize!!) in 7.62..12.7) &&
+                            ((clothing["waist"]!! - waistSize!!) in 7.62..12.7) &&
+                            ((clothing["hip"]!! - hipSize!!) in 7.62..12.7)) -> "หลวม (Too Loose)"
 
-                    // คับเกินไปใส่ไม่ได้ (Way Too Tight): ห่างกัน -9 เซนติเมตร หรือน้อยกว่าในทุกด้าน, เฉพาะ bust, waist, และ hip เท่านั้น
-                    (((clothing["bust"]!! - bustSize!!) < -9) &&
-                            ((clothing["waist"]!! - waistSize!!) < -9) &&
-                            ((clothing["hip"]!! - hipSize!!) < -9)) -> "คับเกินไป (Way Too Tight)"
+                    // oversize: ถ้าขนาดของเสื้อผ้ามีความแตกต่างจากขนาดของผู้ใส่เกิน 12.7 เซนติเมตร ใน bust, waist, และ hip หรือ shoulder
+                    (((clothing["bust"]!! - bustSize!!) > 12.7) &&
+                            ((clothing["waist"]!! - waistSize!!) > 12.7) &&
+                            ((clothing["hip"]!! - hipSize!!) > 12.7) ||
+                            ((clothing["shoulder"]!! - shoulderWidth!!) > 12.7)) -> "oversize"
 
-                    // oversize: ถ้าขนาดของเสื้อผ้ามีความแตกต่างจากขนาดของผู้ใส่เกิน 9 เซนติเมตร ใน bust, waist, และ hip หรือ shoulder
-                    (((clothing["bust"]!! - bustSize!!) > 9) ||
-                            ((clothing["waist"]!! - waistSize!!) > 9) ||
-                            ((clothing["hip"]!! - hipSize!!) > 9) ||
-                            ((clothing["shoulder"]!! - shoulderWidth!!) > 9)) -> "oversize"
+                    // ไม่เหมาะสมกับรูปร่างของคุณ: ห่างกันน้อยกว่า 0 เซนติเมตร ใน bust, waist, และ hip
+                    (((clothing["bust"]!! - bustSize!!) < 0) &&
+                            ((clothing["waist"]!! - waistSize!!) < 0) &&
+                            ((clothing["hip"]!! - hipSize!!) < 0)) -> "ไม่เหมาะสมกับรูปร่างของคุณ"
 
                     else -> "ไม่เหมาะสมกับรูปร่างของคุณ"
                 }
@@ -289,31 +290,31 @@ class BodyAnalyzer {
             }
              "Oval" -> {
                  when {
-                     // ฟิต (Fits well): ห่างกัน -3 ถึง 7 เซนติเมตร โดยเน้นที่ waist, bust, และ hip เท่านั้น
-                     (((clothing["bust"]!! - bustSize!!) in -3.0..7.0) ||
-                             ((clothing["waist"]!! - waistSize!!) in -3.0..7.0) ||
-                             ((clothing["hip"]!! - hipSize!!) in -3.0..7.0)) -> "ฟิต (Fits well)"
+                     // คับ (Too Tight): ห่างกัน 0 ถึง 2.54 เซนติเมตร โดยเน้นที่ waist, bust, และ hip เท่านั้น
+                     (((clothing["bust"]!! - bustSize!!) in 0.0..2.54) &&
+                             ((clothing["waist"]!! - waistSize!!) in 0.0..2.54) &&
+                             ((clothing["hip"]!! - hipSize!!) in 0.0..2.54)) -> "คับ (Too Tight)"
 
-                     // หลวม (Too Loose): ห่างกัน 8-14 เซนติเมตร โดยเช็คทุกด้าน
-                     (((clothing["bust"]!! - bustSize!!) in 8.0..14.0) ||
-                             ((clothing["waist"]!! - waistSize!!) in 8.0..14.0) ||
-                             ((clothing["hip"]!! - hipSize!!) in 8.0..14.0)) -> "หลวม (Too Loose)"
+                     // ฟิต (Fits well): ห่างกัน 2.54 ถึง 5.08 เซนติเมตร โดยเน้นที่ waist, bust, และ hip เท่านั้น
+                     (((clothing["bust"]!! - bustSize!!) in 2.54..5.08) &&
+                             ((clothing["waist"]!! - waistSize!!) in 2.54..5.08) &&
+                             ((clothing["hip"]!! - hipSize!!) in 2.54..5.08)) -> "ฟิต (Fits well)"
 
-                     // คับ (Too Tight): ห่างกัน -15 ถึง -3 เซนติเมตร ในทุกด้าน โดยเน้นที่ bust, waist, และ hip เท่านั้น
-                     (((clothing["bust"]!! - bustSize!!) in -15.0..-3.0) &&
-                             ((clothing["waist"]!! - waistSize!!) in -15.0..-3.0) &&
-                             ((clothing["hip"]!! - hipSize!!) in -15.0..-3.0)) -> "คับ (Too Tight)"
+                     // หลวม (Too Loose): ห่างกัน 7.62 ถึง 12.7 เซนติเมตร โดยเช็คทุกด้าน
+                     (((clothing["bust"]!! - bustSize!!) in 7.62..12.7) &&
+                             ((clothing["waist"]!! - waistSize!!) in 7.62..12.7) &&
+                             ((clothing["hip"]!! - hipSize!!) in 7.62..12.7)) -> "หลวม (Too Loose)"
 
-                     // คับเกินไปใส่ไม่ได้ (Way Too Tight): ห่างกัน -9 เซนติเมตร หรือน้อยกว่าในทุกด้าน, เฉพาะ bust, waist, และ hip เท่านั้น
-                     (((clothing["bust"]!! - bustSize!!) < -9) &&
-                             ((clothing["waist"]!! - waistSize!!) < -9) &&
-                             ((clothing["hip"]!! - hipSize!!) < -9)) -> "คับเกินไป (Way Too Tight)"
+                     // oversize: ถ้าขนาดของเสื้อผ้ามีความแตกต่างจากขนาดของผู้ใส่เกิน 12.7 เซนติเมตร ใน bust, waist, และ hip หรือ shoulder
+                     (((clothing["bust"]!! - bustSize!!) > 12.7) &&
+                             ((clothing["waist"]!! - waistSize!!) > 12.7) &&
+                             ((clothing["hip"]!! - hipSize!!) > 12.7) ||
+                             ((clothing["shoulder"]!! - shoulderWidth!!) > 12.7)) -> "oversize"
 
-                     // oversize: ถ้าขนาดของเสื้อผ้ามีความแตกต่างจากขนาดของผู้ใส่เกิน 9 เซนติเมตร ใน bust, waist, และ hip หรือ shoulder
-                     (((clothing["bust"]!! - bustSize!!) > 9) ||
-                             ((clothing["waist"]!! - waistSize!!) > 9) ||
-                             ((clothing["hip"]!! - hipSize!!) > 9) ||
-                             ((clothing["shoulder"]!! - shoulderWidth!!) > 9)) -> "oversize"
+                     // ไม่เหมาะสมกับรูปร่างของคุณ: ห่างกันน้อยกว่า 0 เซนติเมตร ใน bust, waist, และ hip
+                     (((clothing["bust"]!! - bustSize!!) < 0) &&
+                             ((clothing["waist"]!! - waistSize!!) < 0) &&
+                             ((clothing["hip"]!! - hipSize!!) < 0)) -> "ไม่เหมาะสมกับรูปร่างของคุณ"
 
                      else -> "ไม่เหมาะสมกับรูปร่างของคุณ"
                  }
@@ -321,31 +322,31 @@ class BodyAnalyzer {
              }
             "Trapezoid" -> {
                 when {
-                    // ฟิต (Fits well): ห่างกัน -3 ถึง 7 เซนติเมตร โดยเน้นที่ waist, bust, และ hip เท่านั้น
-                    (((clothing["bust"]!! - bustSize!!) in -3.0..7.0) ||
-                            ((clothing["waist"]!! - waistSize!!) in -3.0..7.0) ||
-                            ((clothing["hip"]!! - hipSize!!) in -3.0..7.0)) -> "ฟิต (Fits well)"
+                    // คับ (Too Tight): ห่างกัน 0 ถึง 2.54 เซนติเมตร โดยเน้นที่ waist, bust, และ hip เท่านั้น
+                    (((clothing["bust"]!! - bustSize!!) in 0.0..2.54) &&
+                            ((clothing["waist"]!! - waistSize!!) in 0.0..2.54) &&
+                            ((clothing["hip"]!! - hipSize!!) in 0.0..2.54)) -> "คับ (Too Tight)"
 
-                    // หลวม (Too Loose): ห่างกัน 8-14 เซนติเมตร โดยเช็คทุกด้าน
-                    (((clothing["bust"]!! - bustSize!!) in 8.0..14.0) ||
-                            ((clothing["waist"]!! - waistSize!!) in 8.0..14.0) ||
-                            ((clothing["hip"]!! - hipSize!!) in 8.0..14.0)) -> "หลวม (Too Loose)"
+                    // ฟิต (Fits well): ห่างกัน 2.54 ถึง 5.08 เซนติเมตร โดยเน้นที่ waist, bust, และ hip เท่านั้น
+                    (((clothing["bust"]!! - bustSize!!) in 2.54..5.08) &&
+                            ((clothing["waist"]!! - waistSize!!) in 2.54..5.08) &&
+                            ((clothing["hip"]!! - hipSize!!) in 2.54..5.08)) -> "ฟิต (Fits well)"
 
-                    // คับ (Too Tight): ห่างกัน -15 ถึง -3 เซนติเมตร ในทุกด้าน โดยเน้นที่ bust, waist, และ hip เท่านั้น
-                    (((clothing["bust"]!! - bustSize!!) in -15.0..-3.0) &&
-                            ((clothing["waist"]!! - waistSize!!) in -15.0..-3.0) &&
-                            ((clothing["hip"]!! - hipSize!!) in -15.0..-3.0)) -> "คับ (Too Tight)"
+                    // หลวม (Too Loose): ห่างกัน 7.62 ถึง 12.7 เซนติเมตร โดยเช็คทุกด้าน
+                    (((clothing["bust"]!! - bustSize!!) in 7.62..12.7) &&
+                            ((clothing["waist"]!! - waistSize!!) in 7.62..12.7) &&
+                            ((clothing["hip"]!! - hipSize!!) in 7.62..12.7)) -> "หลวม (Too Loose)"
 
-                    // คับเกินไปใส่ไม่ได้ (Way Too Tight): ห่างกัน -9 เซนติเมตร หรือน้อยกว่าในทุกด้าน, เฉพาะ bust, waist, และ hip เท่านั้น
-                    (((clothing["bust"]!! - bustSize!!) < -9) &&
-                            ((clothing["waist"]!! - waistSize!!) < -9) &&
-                            ((clothing["hip"]!! - hipSize!!) < -9)) -> "คับเกินไป (Way Too Tight)"
+                    // oversize: ถ้าขนาดของเสื้อผ้ามีความแตกต่างจากขนาดของผู้ใส่เกิน 12.7 เซนติเมตร ใน bust, waist, และ hip หรือ shoulder
+                    (((clothing["bust"]!! - bustSize!!) > 12.7) &&
+                            ((clothing["waist"]!! - waistSize!!) > 12.7) &&
+                            ((clothing["hip"]!! - hipSize!!) > 12.7) ||
+                            ((clothing["shoulder"]!! - shoulderWidth!!) > 12.7)) -> "oversize"
 
-                    // oversize: ถ้าขนาดของเสื้อผ้ามีความแตกต่างจากขนาดของผู้ใส่เกิน 9 เซนติเมตร ใน bust, waist, และ hip หรือ shoulder
-                    (((clothing["bust"]!! - bustSize!!) > 9) ||
-                            ((clothing["waist"]!! - waistSize!!) > 9) ||
-                            ((clothing["hip"]!! - hipSize!!) > 9) ||
-                            ((clothing["shoulder"]!! - shoulderWidth!!) > 9)) -> "oversize"
+                    // ไม่เหมาะสมกับรูปร่างของคุณ: ห่างกันน้อยกว่า 0 เซนติเมตร ใน bust, waist, และ hip
+                    (((clothing["bust"]!! - bustSize!!) < 0) &&
+                            ((clothing["waist"]!! - waistSize!!) < 0) &&
+                            ((clothing["hip"]!! - hipSize!!) < 0)) -> "ไม่เหมาะสมกับรูปร่างของคุณ"
 
                     else -> "ไม่เหมาะสมกับรูปร่างของคุณ"
                 }
